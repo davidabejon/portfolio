@@ -269,13 +269,13 @@ span {
 
 .bg-transition {
     height: 30rem;
-    background-image: url(/svg/stacked-steps-haikei.svg);
+    background-image: url("./svg/stacked-steps-haikei.svg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 .bg-transition-2 {
     height: 15rem;
-    background-image: url(/svg/wave-haikei.svg);
+    background-image: url("./svg/wave-haikei.svg");
     background-size: cover;
     background-repeat: no-repeat;
 }
