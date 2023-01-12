@@ -238,36 +238,44 @@ span {
     transition: .5s;
 }
 
-.front .word:hover span:nth-child(1) {
-    transform: rotate(-30deg) translate(-10%, -20%);
+.front #linkedin:hover span,
+.front #mail:hover span {
+    position: relative;
+    animation: letter-bounce .8s ease-in-out infinite alternate;
 }
-.front .word:hover span:nth-child(2) {
-    transform: rotate(10deg) translateY(-20%);
-}
-.front .word:hover span:nth-child(3) {
-    transform: rotate(-10deg) translate(30%, -40%);
-}
-.front .word:hover span:nth-child(4) {
-    transform: rotate(10deg) translateY(-20%);
-}
-.front .word:hover span:nth-child(5) {
-    transform: rotate(10deg) translate(20%, -20%);
-}
-.front .word:hover span:nth-child(6) {
-    transform: rotate(-20deg) translate(40%, -20%);
-}
-.front .word:hover span:nth-child(7) {
-    transform: rotate(10deg) translateY(30%);
-}
-.front .word:hover span:nth-child(8) {
-    transform: rotate(-35deg) translate(0%, -10%);
-}
-.front .word:hover span:nth-child(9) {
-    transform: rotate(-50deg) translate(40%, -55%);
-}
-.front .word:hover span:nth-child(10) {
-    transform: rotate(-20deg) translate(-80%, 20%);
-}
+
+.front #linkedin:hover span:nth-child(1),
+.front #mail:hover span:nth-child(1) { animation-delay: 75ms;}
+.front #linkedin:hover span:nth-child(2),
+.front #mail:hover span:nth-child(2) {animation-delay: 125ms;}
+.front #linkedin:hover span:nth-child(3),
+.front #mail:hover span:nth-child(3) {animation-delay: 200ms;}
+.front #linkedin:hover span:nth-child(4),
+.front #mail:hover span:nth-child(4) {animation-delay: 275ms;}
+.front #linkedin:hover span:nth-child(5),
+.front #mail:hover span:nth-child(5) {animation-delay: 350ms;}
+.front #linkedin:hover span:nth-child(6),
+.front #mail:hover span:nth-child(6) {animation-delay: 425ms;}
+.front #linkedin:hover span:nth-child(7),
+.front #mail:hover span:nth-child(7) {animation-delay: 500ms;}
+.front #linkedin:hover span:nth-child(8),
+.front #mail:hover span:nth-child(8) {animation-delay: 575ms;}
+.front #linkedin:hover span:nth-child(9),
+.front #mail:hover span:nth-child(9) {animation-delay: 650ms;}
+.front #linkedin:hover span:nth-child(10),
+.front #mail:hover span:nth-child(10) {animation-delay: 725ms;}
+
+
+.front .word:hover span:nth-child(1) {transform: rotate(-30deg) translate(-10%, -20%);}
+.front .word:hover span:nth-child(2) {transform: rotate(10deg) translateY(-20%);}
+.front .word:hover span:nth-child(3) {transform: rotate(-10deg) translate(30%, -40%);}
+.front .word:hover span:nth-child(4) {transform: rotate(10deg) translateY(-20%);}
+.front .word:hover span:nth-child(5) {transform: rotate(10deg) translate(20%, -20%);}
+.front .word:hover span:nth-child(6) {transform: rotate(-20deg) translate(40%, -20%);}
+.front .word:hover span:nth-child(7) {transform: rotate(10deg) translateY(30%);}
+.front .word:hover span:nth-child(8) {transform: rotate(-35deg) translate(0%, -10%);}
+.front .word:hover span:nth-child(9) {transform: rotate(-50deg) translate(40%, -55%);}
+.front .word:hover span:nth-child(10) {transform: rotate(-20deg) translate(-80%, 20%);}
 
 /* Animation */
 @keyframes rotate-bg {
@@ -276,6 +284,24 @@ span {
     }
     100% {
         background-position: 800%;
+    }
+}
+
+@keyframes letter-bounce {
+    0% {
+        top: 0px;
+    }
+    100% {
+        top: -5px;
+    }
+}
+
+@keyframes moving-text-bg {
+    0% {
+        background-position: 0 center;
+    }
+    100% {
+        background-position: -200% center;
     }
 }
 
@@ -324,16 +350,6 @@ span {
     }
     .bg-transition-2 {
         height: 30rem;
-    }
-}
-
-/* Animations */
-@keyframes moving-text-bg {
-    0% {
-        background-position: 0 center;
-    }
-    100% {
-        background-position: -200% center;
     }
 }
 
