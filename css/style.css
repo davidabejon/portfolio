@@ -127,9 +127,9 @@ nav {
     }
 }
 
-/* Header */
+/* Front letters */
 
-.header {
+.front {
     margin: 0 auto;
     max-width: 60rem;
     height: 40rem;
@@ -137,10 +137,35 @@ nav {
     font-family: var(--rubik);
 }
 
-@media (max-width: 768px) {
-    .header {
-        max-width: 40rem;
+@media (max-width: 767px) {
+    .heading {
+        height: 30rem;
+    }
+    .front {
+        width: 70%;
+        height: 20rem;
+    }
+
+}
+@media (max-width: 480px) {
+    .heading {
+        height: 30rem;
+    }
+    .front {
+        width: 80%;
         height: 25rem;
+    }
+}
+@media (max-width: 380px) {
+    .heading {
+        height: 20rem;
+    }
+    .front {
+        width: 80%;
+        height: 15rem;
+    }
+    img {
+        width: 70%;
     }
 }
 
@@ -166,14 +191,28 @@ nav {
     text-transform: uppercase;
     color: white;
 }
-
-@media (max-width: 768px) {
+@media (max-width: 1140px) {
+    .word, .link {
+        font-size: 6rem;
+    }
+}
+@media (max-width: 767px) {
     .word, .link {
         font-size: 3.5rem;
     }
 }
+@media (max-width: 480px) {
+    .word, .link {
+        font-size: 3.5rem;
+    }
+}
+@media (max-width: 380px) {
+    .word, .link {
+        font-size: 2rem;
+    }
+}
 
-.header:has(.word:hover) .word:not(.word:hover) {
+.front:has(.word:hover) .word:not(.word:hover) {
     opacity: 0.2;
 }
 
@@ -199,34 +238,34 @@ span {
     transition: .5s;
 }
 
-.header .word:hover span:nth-child(1) {
+.front .word:hover span:nth-child(1) {
     transform: rotate(-30deg) translate(-10%, -20%);
 }
-.header .word:hover span:nth-child(2) {
+.front .word:hover span:nth-child(2) {
     transform: rotate(10deg) translateY(-20%);
 }
-.header .word:hover span:nth-child(3) {
+.front .word:hover span:nth-child(3) {
     transform: rotate(-10deg) translate(30%, -40%);
 }
-.header .word:hover span:nth-child(4) {
+.front .word:hover span:nth-child(4) {
     transform: rotate(10deg) translateY(-20%);
 }
-.header .word:hover span:nth-child(5) {
+.front .word:hover span:nth-child(5) {
     transform: rotate(10deg) translate(20%, -20%);
 }
-.header .word:hover span:nth-child(6) {
+.front .word:hover span:nth-child(6) {
     transform: rotate(-20deg) translate(40%, -20%);
 }
-.header .word:hover span:nth-child(7) {
+.front .word:hover span:nth-child(7) {
     transform: rotate(10deg) translateY(30%);
 }
-.header .word:hover span:nth-child(8) {
+.front .word:hover span:nth-child(8) {
     transform: rotate(-35deg) translate(0%, -10%);
 }
-.header .word:hover span:nth-child(9) {
+.front .word:hover span:nth-child(9) {
     transform: rotate(-50deg) translate(40%, -55%);
 }
-.header .word:hover span:nth-child(10) {
+.front .word:hover span:nth-child(10) {
     transform: rotate(-20deg) translate(-80%, 20%);
 }
 
