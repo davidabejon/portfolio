@@ -361,15 +361,80 @@ span {
     padding-bottom: 15rem;
     background-color: white;
     width: 100vw;
+    display: flex;
+    justify-content: center;
+
 }
 
-.cards {
+.sobre-mi {
+    max-width: 1050px;
     display: flex;
     flex-direction: column;
 }
-
-@media (max-width: 768px) {
-    .card {
-        width: 30rem;
+@media (max-width: 1140px) {
+    .sobre-mi {
+        padding: 0 4rem;
     }
+}
+@media (max-width: 768px) {
+    .sobre-mi {
+        padding: 0 2rem;
+    }
+}
+
+.card {
+    opacity: 0; 
+    transform: translateX(-10rem);
+    /* For intersection observer */
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 3px solid black;
+    transition: opacity 1s ease-in-out, transform .5s ease-out;
+}
+.card--show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+@media (max-width: 1140px) {
+    .card-content {
+        flex-direction: column;
+    }
+}
+
+.card img {
+    width: 30%;
+    height: 80%;
+}
+@media (max-width: 1140px) {
+    .card img {
+        width: 60%;
+        height: 60%;
+    }
+}
+@media (max-width: 768px) {
+    .card img {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+.card-separator {
+    opacity: .5;
+    margin: 0 3rem;
+    position: relative;
+    top: -3rem;
+}
+
+.card-text {
+    font-size: 2rem;
+    margin: 0 4rem 4rem 4rem;
 }
