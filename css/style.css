@@ -9,6 +9,11 @@
     --colorSecundario2: #DCD6F7;
     --colorSecundario3: #F4EEFF;
     --gris: #9198a5;
+
+    --main-bg: #B2BEB5;
+
+    /* Gradient */
+    --gradienteSkew: linear-gradient(to right, #141e30, #243b55, #141e30);
 }
 
 html {
@@ -361,15 +366,15 @@ span {
     padding-bottom: 15rem;
     background-color: white;
     width: 100vw;
-    display: flex;
-    justify-content: center;
-
 }
 
 .sobre-mi {
-    max-width: 1050px;
+    width: 100vw;
+    padding: 0 12rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 @media (max-width: 1140px) {
     .sobre-mi {
@@ -437,4 +442,64 @@ span {
 .card-text {
     font-size: 2rem;
     margin: 0 4rem 4rem 4rem;
+}
+
+/* Skew content section */
+
+.skew {
+    height: 50rem;
+    margin-top: 5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    z-index: 0;
+}
+
+.skew-text {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+    padding: 2rem 20rem 0 20rem;
+}
+@media (max-width: 768px) {
+    .skew-text {
+        padding: 2rem 4rem 0 4rem;
+    }
+}
+
+.skew::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-size: 200%;
+    top: 0;
+    background-image: var(--gradienteSkew);
+    transform: skewY(-5deg);
+    z-index: -1;
+    /* animation: bg-rotate 10s linear infinite; */
+}
+
+@keyframes skewRotate {
+    0% {
+        transform: skewY(5deg);
+    }
+    50% {
+        transform: skewY(-5deg);
+    }
+    100% {
+        transform: skewY(5deg);
+    }
+}
+
+@keyframes bg-rotate {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 200%;
+    }
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="174.77026mm"
+   height="92.310806mm"
+   viewBox="0 0 174.77026 92.310806"
+   version="1.1"
+   id="svg5"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-19.337838,-59.472971)">
+    <rect
+       style="fill:#6d6d6d;fill-opacity:1;stroke-width:0.264583"
+       id="rect111"
+       width="111.28378"
+       height="52.175674"
+       x="19.337837"
+       y="73.337837"
+       inkscape:export-filename="fondo_cuadros.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#000000;fill-opacity:0.806916;stroke-width:0.264583"
+       id="rect165"
+       width="80.270271"
+       height="51.445946"
+       x="75.527023"
+       y="59.472973" />
+    <rect
+       style="fill:#000000;stroke-width:0.264583"
+       id="rect167"
+       width="54.000008"
+       height="39.405403"
+       x="25.175674"
+       y="112.37837" />
+    <rect
+       style="fill:#313131;fill-opacity:1;stroke-width:0.497653"
+       id="rect169"
+       width="87.932434"
+       height="47.797295"
+       x="106.17567"
+       y="99.972977" />
+  </g>
+</svg>
