@@ -503,3 +503,36 @@ span {
         background-position: 200%;
     }
 }
+
+/* Scrollbar styling */
+
+/* Chrome, Safari and Edge */
+body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #d6d6d6;
+}
+
+body::-webkit-scrollbar
+{
+    width: 12px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #8c8c8c;
+}
+body::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: #737373;
+}
+body::-webkit-scrollbar-thumb:vertical:active {
+  background-color: #535353;
+}
+
+/* Firefox */
+html {
+    scrollbar-color: #8c8c8c #d6d6d6;
+    scrollbar-width: thin;
+}
