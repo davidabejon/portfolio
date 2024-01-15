@@ -5,9 +5,15 @@ const translation = {
         experience: { es: 'Experiencia', en: 'Experience' },
         projects: { es: 'Proyectos', en: 'Projects' }
     },
-    typeAnimation: {
-        phrase1: { es: 'Desarrollador Front-End', en: 'Front-End Developer' },
-        phrase2: { es: 'Estudiante de Ingeniería Informática', en: 'Informatics Engineering student' }
+    about: {
+        phrase1: {
+            es: 'Estudiante de tercer año de Ingeniería Informática en la',
+            en: 'Third year student of Computer Engineering at the'
+        },
+        phrase2: {
+            es: 'Conocimientos de Java, Python y PostgreSQL. Tengo un nivel de inglés C2 certificado por la Escuela Oficial de Idiomas. Apasionado por el desarrollo web de páginas dinámicas con React.js y jQuery.',
+            en: 'Knowledge of Java, Python and PostgreSQL. I have a C2 level of English certified by the Escuela Oficial de Idiomas. Passionate about web development of dynamic pages with React.js and jQuery.'
+        }
     },
     experience: {
         role1: {

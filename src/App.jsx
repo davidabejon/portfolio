@@ -203,7 +203,7 @@ function App() {
           <div className="type-wrap">
             <span className='type-animation' ref={el} />
           </div>
-          <p>Estudiante de tercer año de Ingeniería Informática en la <a className='web-link' href='https://uah.es'>Universidad de Alcalá de Henares</a>. Conocimientos de Java, Python y PostgreSQL. Tengo un nivel de inglés C2 certificado por la Escuela Oficial de Idiomas. Apasionado por el desarrollo web de páginas dinámicas con React.js y jQuery.</p>
+          <p>{translation.about.phrase1[language]} <a className='web-link' href='https://uah.es'>Universidad de Alcalá de Henares</a>. {translation.about.phrase2[language]}</p>
         </div>
 
         {
