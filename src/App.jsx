@@ -154,6 +154,7 @@ function App() {
 
   return (
     <>
+      <div className='bg'></div>
       <div className='language'>
         <button onClick={changeLanguage} title={translation.elementDescriptions.changeLanguage[language]}>
           {
