@@ -297,17 +297,17 @@
   margin-bottom: 1rem;
 }
 
-.weather-app, .front-end-store, .blogdecafe {
+.weather-app, .front-end-store, .blogdecafe, .connected-sounds {
   min-height: 30rem;
   padding: 4rem;
   position: relative;
 }
 @media (max-width: 480px) {
-  .weather-app, .front-end-store, .blogdecafe {
+  .weather-app, .front-end-store, .blogdecafe, .connected-sounds {
     padding: 1rem;
   }
 }
-.weather-app::before, .front-end-store::before, .blogdecafe::before {
+.weather-app::before, .front-end-store::before, .blogdecafe::before, .connected-sounds::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
@@ -331,8 +331,12 @@
 .blogdecafe::before {
   background-image: url(./assets/blogdecafe.JPG);
 }
+.connected-sounds::before {
+  background-image: url(./assets/connected-sounds.JPG);
+  background-position: left;
+}
 
-.front-end-store-content, .weather-app-content, .blogdecafe-content {
+.front-end-store-content, .weather-app-content, .blogdecafe-content, .connected-sounds-content {
   background-color: rgba(0,0,0,0.8);
   padding: .2rem 1.5rem;
   border-radius: 1rem;

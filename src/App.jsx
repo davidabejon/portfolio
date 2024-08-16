@@ -174,16 +174,11 @@ function App() {
         window.innerWidth > 480 ?
           <div className='logo' onClick={() => window.scrollTo(0, 0)}>
             <Flicking circular={true} horizontal={false} plugins={plugins}>
-              <p>David Abejón</p>
-              <p>David Abejón</p>
-              <p>David Abejón</p>
-              <p>David Abejón</p>
-              <p>David Abejón</p>
-              <p>David Abejón</p>
-              <p>David Abejón</p>
-              <p>David Abejón</p>
-              <p>David Abejón</p>
-              <p>David Abejón</p>
+              {
+                Array.from({ length: 10 }, (_, i) => i).map(i => (
+                  <p key={i}>David Abejón</p>
+                ))
+              }
             </Flicking>
           </div>
           : ''
@@ -292,6 +287,23 @@ function App() {
           <div className='d-flex align-items-center gap-2 mb-2'>
             <IoHammerOutline color='white' size="3rem" />
             <h1>{translation.titles.projects[language]}</h1>
+          </div>
+
+          <div className='connected-sounds d-flex gap-sm-5 flex-wrap flex-sm-nowrap'>
+            <div className='connected-sounds-content d-flex flex-column justify-content-center'>
+              <h4>{translation.projects.connectedSounds.title[language]}</h4>
+              <hr className='project-separator'></hr>
+              <div className='d-flex gap-3 flex-wrap mb-2'>
+                <span className='tag tag-react'>React</span>
+                <span className='tag tag-js'>JavaScript</span>
+                <span className='tag tag-css'>CSS</span>
+              </div>
+              <p>{translation.projects.connectedSounds.descr[language]}</p>
+              <div className='project-buttons d-flex gap-3'>
+                <a target='_blank' href='https://github.com/davidabejon/connected-sounds' className='project-button d-flex align-items-center gap-1'>{translation.buttons.repository[language]}<TbBrandGithubFilled /></a>
+                <a target='_blank' href='http://143.47.48.170:5173/' className='project-button d-flex align-items-center gap-1'>{translation.buttons.liveDemo[language]}<HiOutlineExternalLink /></a>
+              </div>
+            </div>
           </div>
 
           <div className='weather-app d-flex gap-sm-5 flex-wrap flex-sm-nowrap'>

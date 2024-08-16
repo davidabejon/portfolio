@@ -34,11 +34,18 @@ const translation = {
         }
     },
     projects: {
+        connectedSounds: {
+            title: { es: 'Connected Sounds', en: 'Connected Sounds' },
+            descr: {
+                es: 'Connected Sounds es una aplicación web que permite explorar emisoras de radio emitiendo en cualquier país del mundo a través de un visor web limpio y elegante.',
+                en: 'Connected Sounds is a project that aims at building bridges between different cultures through the thousands of radio broadcasts being trasmitted all around the globe.'
+            }
+        },
         weatherApp: {
             title: { es: 'Webapp meteorológica', en: 'Weather webapp' },
             descr: {
                 es: 'Aplicación web que muestra información meteorológica en ciudades españolas. Hecha con React en la parte de Front-End y con la API RESTful de el-tiempo.net y AEMET en el Back-End.',
-                en: 'Web app that shows weather information at Spanish cities. Made with React on the Front-End and el-tiempo.net and AEMET\'s RESTful API on the Back-End. '
+                en: 'Web app that shows weather information at Spanish cities. Made with React on the Front-End and el-tiempo.net and AEMET\'s RESTful API on the Back-End.'
             }
         },
         frontEndStore: {
