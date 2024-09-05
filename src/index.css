@@ -4,6 +4,11 @@
   --mainFont: 'Poppins', sans-serif;
 }
 
+::selection {
+  color: black;
+  background: lightblue;
+}
+
 body {
   margin: 0;
   padding: 0;

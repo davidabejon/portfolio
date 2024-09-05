@@ -60,6 +60,24 @@ window.onload = () => {
     document.querySelector('.curtain').style.opacity = '0'; // hide loader
 };
 
+
+// Floor
+
+const grid = new THREE.GridHelper(400, 30);
+grid.position.y = -50;
+grid.position.z = -200;
+grid.material.transparent = true;
+grid.material.opacity = .4;
+scene.add(grid);
+
+// const verticalGrid = new THREE.GridHelper(400, 30);
+// verticalGrid.position.z = -67;
+// verticalGrid.position.y = 150;
+// verticalGrid.rotation.x = Math.PI / 2;
+// verticalGrid.material.transparent = true;
+// verticalGrid.material.opacity = .4;
+// scene.add(verticalGrid);
+
 // Animation Loop
 
 function animate() {
