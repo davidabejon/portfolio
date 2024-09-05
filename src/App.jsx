@@ -37,7 +37,7 @@ import { pdfjs } from 'react-pdf'
 
 // react-pdf workers config
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.js',
+  'pdfjs-dist/build/pdf.worker.min.mjs',
   import.meta.url,
 ).toString()
 
@@ -377,7 +377,7 @@ function App() {
               </div>
               <div className='d-flex justify-content-center'>
                 <Document file={language == 'es' ? esCV : enCV} className="pdf">
-                  <Page pageNumber={0} className="pdf" />
+                  <Page pageNumber={1} className="pdf" />
                 </Document>
               </div>
             </div>
