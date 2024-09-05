@@ -377,7 +377,7 @@ function App() {
               </div>
               <div className='d-flex justify-content-center'>
                 <Document file={language == 'es' ? esCV : enCV} className="pdf">
-                  <Page pageNumber={1} className="pdf" />
+                  <Page pageNumber={0} className="pdf" />
                 </Document>
               </div>
             </div>
