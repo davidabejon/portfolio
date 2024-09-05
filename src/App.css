@@ -26,6 +26,12 @@
       padding-left: 20vw;
     }
 }
+@media (min-width: 1900px) {
+    .app {
+      padding-right: 0;
+      padding-left: 0;
+    }
+}
 
 /* utilities */
 
