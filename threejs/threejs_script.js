@@ -28,7 +28,7 @@ pointLight.position.set(5, 5, 5);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
-function addStar() {
+function createStar() {
     const geometry = new THREE.IcosahedronGeometry(1, 0);
     const material = new THREE.MeshStandardMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: .4 });
     const star = new THREE.Mesh(geometry, material);
@@ -38,12 +38,19 @@ function addStar() {
         .map(() => THREE.MathUtils.randFloatSpread(100));
 
     star.position.set(x, y, z);
-    scene.add(star);
+    return star;
 }
 
-Array(200).fill().forEach(addStar);
+const stars = Array(200).fill().map(createStar);
+stars.forEach(star => scene.add(star));
 
 function moveCamera() {
+    stars.forEach(star => {
+        star.rotation.x += 0.01;
+        star.rotation.y += 0.01;
+        star.rotation.z += 0.01;
+    });
+
     const t = document.body.getBoundingClientRect().top;
     camera.position.z = t * -0.01;
 }
