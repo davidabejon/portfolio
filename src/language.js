@@ -7,12 +7,12 @@ const translation = {
     },
     about: {
         phrase1: {
-            es: 'Estudiante de tercer año de Ingeniería Informática en la',
-            en: 'Third year student of Computer Engineering at the'
+            es: 'Estudiante de cuarto año de Ingeniería Informática en la',
+            en: 'Fourth year Computer Engineering student at the'
         },
         phrase2: {
-            es: 'Conocimientos de Java, Python y PostgreSQL. Tengo un nivel de inglés C2 certificado por la Escuela Oficial de Idiomas. Apasionado por el desarrollo web de páginas dinámicas con React.js y jQuery.',
-            en: 'Knowledge of Java, Python and PostgreSQL. I have a C2 level of English certified by the Escuela Oficial de Idiomas. Passionate about web development of dynamic pages with React.js and jQuery.'
+            es: 'Conocimientos de programación fullstack con JavaScript, Java, PostgreSQL y MySQL. Tengo un nivel de inglés C2 certificado por la Escuela Oficial de Idiomas. Apasionado por el desarrollo web de páginas dinámicas con React.js y metodologías ágiles.',
+            en: 'Fullstack programming skills with JavaScript, Java, PostgreSQL and MySQL. I have a C2 English level certified by the Escuela Oficial de Idiomas. Passionate about web development of dynamic pages with React.js and agile software development.'
         }
     },
     experience: {
