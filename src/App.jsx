@@ -54,6 +54,8 @@ import { createBrowserHistory } from "history";
 
 // type animation
 import Typed from 'typed.js'
+import { Experience } from './components/Experience'
+import { Tag } from './components/Tag'
 
 function App() {
 
@@ -264,23 +266,21 @@ function App() {
             <MdOutlineWorkOutline color='white' size="3rem" />
             <h1>{translation.titles.experience[language]}</h1>
           </div>
-          <div className='experience-role d-flex gap-sm-5 flex-wrap flex-sm-nowrap aling-items-center'>
-            <div className='d-flex flex-column'>
-              <h5>{translation.experience.role1.title[language]}</h5>
-              <p className='mb-2'>{translation.experience.role1.dateRange[language]}</p>
-              <p>{translation.experience.role1.descr[language]}</p>
-            </div>
-            <img className='uah-logo' height={100} src={uahLogo}></img>
-          </div>
+          <Experience
+            className='experience-role'
+            title={translation.experience.role1.title[language]}
+            date={translation.experience.role1.dateRange[language]}
+            description={translation.experience.role1.descr[language]}
+            logo={uahLogo}
+          />
           <hr></hr>
-          <div className='experience-role d-flex mt-4 gap-sm-5 flex-wrap flex-sm-nowrap'>
-            <div className='d-flex flex-column'>
-              <h5>{translation.experience.role2.title[language]}</h5>
-              <p className='mb-2'>{translation.experience.role2.dateRange[language]}</p>
-              <p>{translation.experience.role2.descr[language]} <a className='web-link' href='https://www.linkedin.com/in/davidabejonheras/overlay/1635548535763/single-media-viewer/?profileId=ACoAADvqQIYBq4sXvOYS1vNYzvMQcLrvhTrm4W0' target='_blank'>COMPDES2023</a>.</p>
-            </div>
-            <img className='uah-logo' height={100} src={uahLogo}></img>
-          </div>
+          <Experience
+            className='experience-role'
+            title={translation.experience.role2.title[language]}
+            date={translation.experience.role2.dateRange[language]}
+            description={<>{translation.experience.role2.descr[language]} <a className='web-link' href='https://www.linkedin.com/in/davidabejonheras/overlay/1635548535763/single-media-viewer/?profileId=ACoAADvqQIYBq4sXvOYS1vNYzvMQcLrvhTrm4W0' target='_blank'>COMPDES2023</a>.</>}
+            logo={uahLogo}
+          />
         </div>
 
         <div className='projects pb-5 d-flex flex-column gap-5' ref={projectsRef}>
@@ -294,9 +294,9 @@ function App() {
               <h4>{translation.projects.connectedSounds.title[language]}</h4>
               <hr className='project-separator'></hr>
               <div className='d-flex gap-3 flex-wrap mb-2'>
-                <span className='tag tag-react'>React</span>
-                <span className='tag tag-js'>JavaScript</span>
-                <span className='tag tag-css'>CSS</span>
+                <Tag type='react' text='React' />
+                <Tag type='js' text='JavaScript' />
+                <Tag type='css' text='CSS' />
               </div>
               <p>{translation.projects.connectedSounds.descr[language]}</p>
               <div className='project-buttons d-flex gap-3'>
@@ -311,10 +311,10 @@ function App() {
               <h4>{translation.projects.weatherApp.title[language]}</h4>
               <hr className='project-separator'></hr>
               <div className='d-flex gap-3 flex-wrap mb-2'>
-                <span className='tag tag-react'>React</span>
-                <span className='tag tag-js'>JavaScript</span>
-                <span className='tag tag-css'>CSS</span>
-                <span className='tag tag-apirest'>RESTful API</span>
+                <Tag type='react' text='React' />
+                <Tag type='js' text='JavaScript' />
+                <Tag type='css' text='CSS' />
+                <Tag type='apirest' text='RESTful API' />
               </div>
               <p>{translation.projects.weatherApp.descr[language]}</p>
               <div className='project-buttons d-flex gap-3'>
@@ -329,9 +329,9 @@ function App() {
               <h4>{translation.projects.frontEndStore.title[language]}</h4>
               <hr className='project-separator'></hr>
               <div className='d-flex gap-3 flex-wrap mb-2'>
-                <span className='tag tag-html'>HTML</span>
-                <span className='tag tag-css'>CSS</span>
-                <span className='tag tag-js'>JavaScript</span>
+                <Tag type='html' text='HTML' />
+                <Tag type='css' text='CSS' />
+                <Tag type='js' text='JavaScript' />
               </div>
               <p>{translation.projects.frontEndStore.descr[language]}</p>
               <div className='project-buttons d-flex gap-3'>
@@ -340,22 +340,7 @@ function App() {
               </div>
             </div>
           </div>
-
-          <div className='blogdecafe d-flex mt-4 gap-sm-5 flex-wrap flex-sm-nowrap'>
-            <div className='blogdecafe-content d-flex flex-column justify-content-center'>
-              <h4>{translation.projects.blogDeCafe.title[language]}</h4>
-              <hr className='project-separator'></hr>
-              <div className='d-flex gap-3 flex-wrap mb-2'>
-                <span className='tag tag-html'>HTML</span>
-                <span className='tag tag-css'>CSS</span>
-              </div>
-              <p>{translation.projects.blogDeCafe.descr[language]}</p>
-              <div className='project-buttons d-flex gap-3'>
-                <a target='_blank' href='https://github.com/davidabejon/BlogDeCafe' className='project-button d-flex align-items-center gap-1'>{translation.buttons.repository[language]}<TbBrandGithubFilled /></a>
-                <a target='_blank' href='https://davidabejon.github.io/BlogDeCafe/' className='project-button d-flex align-items-center gap-1'>{translation.buttons.liveDemo[language]}<HiOutlineExternalLink /></a>
-              </div>
-            </div>
-          </div>
+          
         </div>
 
       </div>
