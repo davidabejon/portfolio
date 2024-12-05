@@ -56,6 +56,7 @@ import { createBrowserHistory } from "history";
 import Typed from 'typed.js'
 import { Experience } from './components/Experience'
 import { Tag } from './components/Tag'
+import Project from './components/Project'
 
 function App() {
 
@@ -289,58 +290,52 @@ function App() {
             <h1>{translation.titles.projects[language]}</h1>
           </div>
 
-          <div className='connected-sounds d-flex gap-sm-5 flex-wrap flex-sm-nowrap'>
-            <div className='connected-sounds-content d-flex flex-column justify-content-center'>
-              <h4>{translation.projects.connectedSounds.title[language]}</h4>
-              <hr className='project-separator'></hr>
-              <div className='d-flex gap-3 flex-wrap mb-2'>
-                <Tag type='react' text='React' />
-                <Tag type='js' text='JavaScript' />
-                <Tag type='css' text='CSS' />
-              </div>
-              <p>{translation.projects.connectedSounds.descr[language]}</p>
-              <div className='project-buttons d-flex gap-3'>
-                <a target='_blank' href='https://github.com/davidabejon/connected-sounds' className='project-button d-flex align-items-center gap-1'>{translation.buttons.repository[language]}<TbBrandGithubFilled /></a>
-                <a target='_blank' href='http://143.47.48.170:5173/' className='project-button d-flex align-items-center gap-1'>{translation.buttons.liveDemo[language]}<HiOutlineExternalLink /></a>
-              </div>
-            </div>
-          </div>
+          <Project
+            className='connected-sounds'
+            title={translation.projects.connectedSounds.title[language]}
+            description={translation.projects.connectedSounds.descr[language]}
+            tags={[
+              <Tag type='react' text='React' />,
+              <Tag type='js' text='JavaScript' />,
+              <Tag type='css' text='CSS' />
+            ]}
+            repository={translation.buttons.repository[language]}
+            repositoryURL='https://github.com/davidabejon/connected-sounds'
+            liveDemo={translation.buttons.liveDemo[language]}
+            liveDemoURL='https://radio.davidabejon.cv/'
+          />
 
-          <div className='weather-app d-flex gap-sm-5 flex-wrap flex-sm-nowrap'>
-            <div className='weather-app-content d-flex flex-column justify-content-center'>
-              <h4>{translation.projects.weatherApp.title[language]}</h4>
-              <hr className='project-separator'></hr>
-              <div className='d-flex gap-3 flex-wrap mb-2'>
-                <Tag type='react' text='React' />
-                <Tag type='js' text='JavaScript' />
-                <Tag type='css' text='CSS' />
-                <Tag type='apirest' text='RESTful API' />
-              </div>
-              <p>{translation.projects.weatherApp.descr[language]}</p>
-              <div className='project-buttons d-flex gap-3'>
-                <a target='_blank' href='https://github.com/davidabejon/react-weather-app-v2' className='project-button d-flex align-items-center gap-1'>{translation.buttons.repository[language]}<TbBrandGithubFilled /></a>
-                <a target='_blank' href='https://davidabejon.github.io/react-weather-app-v2/' className='project-button d-flex align-items-center gap-1'>{translation.buttons.liveDemo[language]}<HiOutlineExternalLink /></a>
-              </div>
-            </div>
-          </div>
+          <Project
+            className='weather-app'
+            title={translation.projects.weatherApp.title[language]}
+            description={translation.projects.weatherApp.descr[language]}
+            tags={[
+              <Tag type='react' text='React' />,
+              <Tag type='js' text='JavaScript' />,
+              <Tag type='css' text='CSS' />,
+              <Tag type='apirest' text='RESTful API' />
+            ]}
+            repository={translation.buttons.repository[language]}
+            repositoryURL='https://github.com/davidabejon/react-weather-app-v2'
+            liveDemo={translation.buttons.liveDemo[language]}
+            liveDemoURL='https://davidabejon.github.io/react-weather-app-v2/'
+          />
 
-          <div className='front-end-store d-flex mt-4 gap-sm-5 flex-wrap flex-sm-nowrap'>
-            <div className='front-end-store-content d-flex flex-column justify-content-center'>
-              <h4>{translation.projects.frontEndStore.title[language]}</h4>
-              <hr className='project-separator'></hr>
-              <div className='d-flex gap-3 flex-wrap mb-2'>
-                <Tag type='html' text='HTML' />
-                <Tag type='css' text='CSS' />
-                <Tag type='js' text='JavaScript' />
-              </div>
-              <p>{translation.projects.frontEndStore.descr[language]}</p>
-              <div className='project-buttons d-flex gap-3'>
-                <a target='_blank' href='https://github.com/davidabejon/FrontEnd-Store' className='project-button d-flex align-items-center gap-1'>{translation.buttons.repository[language]}<TbBrandGithubFilled /></a>
-                <a target='_blank' href='https://davidabejon.github.io/FrontEnd-Store/' className='project-button d-flex align-items-center gap-1'>{translation.buttons.liveDemo[language]}<HiOutlineExternalLink /></a>
-              </div>
-            </div>
-          </div>
-          
+          <Project
+            className='front-end-store'
+            title={translation.projects.frontEndStore.title[language]}
+            description={translation.projects.frontEndStore.descr[language]}
+            tags={[
+              <Tag type='html' text='HTML' />,
+              <Tag type='css' text='CSS' />,
+              <Tag type='js' text='JavaScript' />
+            ]}
+            repository={translation.buttons.repository[language]}
+            repositoryURL='https://github.com/davidabejon/FrontEnd-Store'
+            liveDemo={translation.buttons.liveDemo[language]}
+            liveDemoURL='https://davidabejon.github.io/FrontEnd-Store/'
+          />
+
         </div>
 
       </div>
