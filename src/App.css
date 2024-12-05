@@ -307,17 +307,17 @@
   margin-bottom: 1rem;
 }
 
-.weather-app, .front-end-store, .blogdecafe, .connected-sounds {
+.weather-app, .front-end-store, .blogdecafe, .connected-sounds, .gesttfx {
   min-height: 30rem;
   padding: 4rem;
   position: relative;
 }
 @media (max-width: 480px) {
-  .weather-app, .front-end-store, .blogdecafe, .connected-sounds {
+  .weather-app, .front-end-store, .blogdecafe, .connected-sounds, .gesttfx {
     padding: 1rem;
   }
 }
-.weather-app::before, .front-end-store::before, .blogdecafe::before, .connected-sounds::before {
+.weather-app::before, .front-end-store::before, .blogdecafe::before, .connected-sounds::before, .gesttfx::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
@@ -345,8 +345,11 @@
   background-image: url(./assets/connected-sounds.JPG);
   background-position: left;
 }
+.gesttfx::before {
+  background-image: url(./assets/gesttfx.JPG);
+}
 
-.front-end-store-content, .weather-app-content, .blogdecafe-content, .connected-sounds-content {
+.front-end-store-content, .weather-app-content, .blogdecafe-content, .connected-sounds-content, .gesttfx-content {
   background-color: rgba(0,0,0,0.8);
   padding: .2rem 1.5rem;
   border-radius: 1rem;
@@ -368,10 +371,15 @@
   border-radius: .3rem;
   transition: all .2s;
 }
-.project-button:hover {
+.project-button:hover, .project-button-disabled {
   border: 1px solid rgba(255, 255, 255, .6);
   color: rgba(255, 255, 255, .6);
 }
+
+.project-button-disabled {
+  cursor: not-allowed;
+}
+
 /* tags */
 .tag {
   font-size: .8rem;
@@ -399,6 +407,14 @@
   border: 1px solid #5be162;
   color: #44b84a;
 }
+.tag-javaservlets {
+  border: 1px solid #ac2b2b;
+  color: #e56969;
+}
+.tag-mariadb {
+  border: 1px solid #94ea1a;
+  color: #71e276;
+}
 
 /* footer */
 footer {
@@ -423,4 +439,9 @@ footer {
   bottom: 1rem;
   left: 10px;
   z-index: 1;
+}
+
+/* antd tooltip */
+.ant-tooltip-inner {
+  text-align: center !important;
 }

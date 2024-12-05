@@ -306,6 +306,23 @@ function App() {
           />
 
           <Project
+            className='gesttfx'
+            title={translation.projects.gesttfx.title[language]}
+            description={translation.projects.gesttfx.descr[language]}
+            tags={[
+              <Tag type='react' text='React' />,
+              <Tag type='css' text='CSS' />,
+              <Tag type='javaservlets' text='Java Servlets' />,
+              <Tag type='mariadb' text='MariaDB' />,
+            ]}
+            repository={translation.buttons.repository[language]}
+            repositoryDisabled
+            liveDemo={translation.buttons.liveDemo[language]}
+            liveDemoURL="https://gestiontfx.uah.es/GestTFx/"
+            language={language}
+            />
+
+          <Project
             className='weather-app'
             title={translation.projects.weatherApp.title[language]}
             description={translation.projects.weatherApp.descr[language]}
@@ -319,21 +336,6 @@ function App() {
             repositoryURL='https://github.com/davidabejon/react-weather-app-v2'
             liveDemo={translation.buttons.liveDemo[language]}
             liveDemoURL='https://davidabejon.github.io/react-weather-app-v2/'
-          />
-
-          <Project
-            className='front-end-store'
-            title={translation.projects.frontEndStore.title[language]}
-            description={translation.projects.frontEndStore.descr[language]}
-            tags={[
-              <Tag type='html' text='HTML' />,
-              <Tag type='css' text='CSS' />,
-              <Tag type='js' text='JavaScript' />
-            ]}
-            repository={translation.buttons.repository[language]}
-            repositoryURL='https://github.com/davidabejon/FrontEnd-Store'
-            liveDemo={translation.buttons.liveDemo[language]}
-            liveDemoURL='https://davidabejon.github.io/FrontEnd-Store/'
           />
 
         </div>

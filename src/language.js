@@ -41,6 +41,13 @@ const translation = {
                 en: 'Connected Sounds is a project that aims at building bridges between different cultures through the thousands of radio broadcasts being trasmitted all around the globe.'
             }
         },
+        gesttfx: {
+            title: { es: 'GestTFx', en: 'GestTFx' },
+            descr: {
+                es: 'Aplicación de gestión de trabajos de fin de grado y máster para la Escuela Politécnica Superior y otras varias facultades de la Universidad de Alcalá.',
+                en: 'Final degree and master project management application for the Escuela Politécnica Superior and other faculties of the Universidad de Alcalá.'
+            }
+        },
         weatherApp: {
             title: { es: 'Webapp meteorológica', en: 'Weather webapp' },
             descr: {
@@ -66,7 +73,9 @@ const translation = {
     buttons: {
         repository: { es: 'Repositorio', en: 'Repository' },
         liveDemo: { es: 'Ver proyecto', en: 'Live Demo' },
-        close: { es: 'Cerrar', en: 'Close' }
+        close: { es: 'Cerrar', en: 'Close' },
+        repositoryNotAvailable: { es: 'Al ser un proyecto privado, el repositorio no está disponible.', en: 'As this is a private project, the repository is not available.' },
+        liveDemoNotAvailable: { es: 'El demo en vivo no está disponible.', en: 'Live demo is not available.' },
     },
     elementDescriptions: {
         changeLanguage: { es: 'Cambiar idioma', en: 'Change language' },

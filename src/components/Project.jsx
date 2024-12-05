@@ -1,7 +1,11 @@
+import { Tooltip } from "antd";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { TbBrandGithubFilled } from "react-icons/tb";
+import translation from "../language";
 
-function Project({ className, title, description, tags, repository, repositoryURL, liveDemo, liveDemoURL }) {
+function Project({ className, title, description, tags, repository, repositoryURL,
+  liveDemo, liveDemoURL, repositoryDisabled = false, liveDemoDisabled = false, language }) {
+
   return (
     <div className={`${className} d-flex gap-sm-5 flex-wrap flex-sm-nowrap`}>
       <div className={`${className}-content d-flex flex-column justify-content-center`}>
@@ -12,8 +16,12 @@ function Project({ className, title, description, tags, repository, repositoryUR
         </div>
         <p>{description}</p>
         <div className='project-buttons d-flex gap-3'>
-          <a target='_blank' href={repositoryURL} className='project-button d-flex align-items-center gap-1'>{repository}<TbBrandGithubFilled /></a>
-          <a target='_blank' href={liveDemoURL} className='project-button d-flex align-items-center gap-1'>{liveDemo}<HiOutlineExternalLink /></a>
+          <Tooltip title={repositoryDisabled ? translation.buttons.repositoryNotAvailable[language] : ''} color='geekblue' placement='top'>
+            <a target='_blank' href={repositoryURL} className={`project-button ${repositoryDisabled && 'project-button-disabled'} d-flex align-items-center gap-1`}>{repository}<TbBrandGithubFilled /></a>
+          </Tooltip>
+          <Tooltip title={liveDemoDisabled ? translation.buttons.liveDemoNotAvailable[language] : ''} color='geekblue' placement='top'>
+            <a target='_blank' href={liveDemoURL} className={`project-button ${liveDemoDisabled && 'project-button-disabled'} d-flex align-items-center gap-1`}>{liveDemo}<HiOutlineExternalLink /></a>
+          </Tooltip>
         </div>
       </div>
     </div>

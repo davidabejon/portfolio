@@ -15,6 +15,7 @@
   "dependencies": {
     "@egjs/flicking-plugins": "^4.7.1",
     "@egjs/react-flicking": "^4.11.2",
+    "antd": "^5.22.3",
     "history": "^5.3.0",
     "qs": "^6.11.2",
     "react": "^18.2.0",
