@@ -68,6 +68,13 @@ const translation = {
                 es: 'Front-End de la página web de una cafetería, con varias páginas, hecha con HTML y CSS.',
                 en: 'Mock-up project of a coffee shop webpage. An elegant yet practical user interface made with plain HTML and CSS.'
             }
+        },
+        evah: {
+            title: { es: 'EVAH', en: 'EVAH' },
+            descr: {
+                es: 'Aplicación web de gestión de órdenes, partes de trabajo y pedidos para ENVAC Spain. Hecha con React y Jakarta Servlets.',
+                en: 'Web application for managing orders, work orders and requests for ENVAC Spain. Made with React and Jakarta Servlets.'
+            }
         }
     },
     buttons: {
@@ -75,7 +82,7 @@ const translation = {
         liveDemo: { es: 'Ver proyecto', en: 'Live Demo' },
         close: { es: 'Cerrar', en: 'Close' },
         repositoryNotAvailable: { es: 'Al ser un proyecto privado, el repositorio no está disponible.', en: 'As this is a private project, the repository is not available.' },
-        liveDemoNotAvailable: { es: 'El demo en vivo no está disponible.', en: 'Live demo is not available.' },
+        liveDemoNotAvailable: { es: 'Al ser un proyecto privado, la demostración no está disponible.', en: 'As this is a private project, the live demo is not available.' },
     },
     elementDescriptions: {
         changeLanguage: { es: 'Cambiar idioma', en: 'Change language' },

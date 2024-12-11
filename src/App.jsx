@@ -323,19 +323,20 @@ function App() {
             />
 
           <Project
-            className='weather-app'
-            title={translation.projects.weatherApp.title[language]}
-            description={translation.projects.weatherApp.descr[language]}
+            className='evah'
+            title={translation.projects.evah.title[language]}
+            description={translation.projects.evah.descr[language]}
             tags={[
               <Tag type='react' text='React' />,
               <Tag type='js' text='JavaScript' />,
               <Tag type='css' text='CSS' />,
-              <Tag type='apirest' text='RESTful API' />
+              <Tag type='javaservlets' text='Java Servlets' />,
             ]}
             repository={translation.buttons.repository[language]}
-            repositoryURL='https://github.com/davidabejon/react-weather-app-v2'
+            repositoryDisabled
             liveDemo={translation.buttons.liveDemo[language]}
-            liveDemoURL='https://davidabejon.github.io/react-weather-app-v2/'
+            liveDemoDisabled
+            language={language}
           />
 
         </div>

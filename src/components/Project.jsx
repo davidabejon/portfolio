@@ -7,8 +7,8 @@ function Project({ className, title, description, tags, repository, repositoryUR
   liveDemo, liveDemoURL, repositoryDisabled = false, liveDemoDisabled = false, language }) {
 
   return (
-    <div className={`${className} d-flex gap-sm-5 flex-wrap flex-sm-nowrap`}>
-      <div className={`${className}-content d-flex flex-column justify-content-center`}>
+    <div className={`${className} project d-flex gap-sm-5 flex-wrap flex-sm-nowrap`}>
+      <div className="project-content d-flex flex-column justify-content-center">
         <h4>{title}</h4>
         <hr className='project-separator'></hr>
         <div className='d-flex gap-3 flex-wrap mb-2'>

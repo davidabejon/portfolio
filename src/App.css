@@ -307,17 +307,17 @@
   margin-bottom: 1rem;
 }
 
-.weather-app, .front-end-store, .blogdecafe, .connected-sounds, .gesttfx {
+.project {
   min-height: 30rem;
   padding: 4rem;
   position: relative;
 }
 @media (max-width: 480px) {
-  .weather-app, .front-end-store, .blogdecafe, .connected-sounds, .gesttfx {
+  .project {
     padding: 1rem;
   }
 }
-.weather-app::before, .front-end-store::before, .blogdecafe::before, .connected-sounds::before, .gesttfx::before {
+.project::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
@@ -348,8 +348,11 @@
 .gesttfx::before {
   background-image: url(./assets/gesttfx.JPG);
 }
+.evah::before {
+  background-image: url(./assets/evah.JPG);
+}
 
-.front-end-store-content, .weather-app-content, .blogdecafe-content, .connected-sounds-content, .gesttfx-content {
+.project-content {
   background-color: rgba(0,0,0,0.8);
   padding: .2rem 1.5rem;
   border-radius: 1rem;
