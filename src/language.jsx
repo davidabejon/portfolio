@@ -18,7 +18,7 @@ const translation = {
     experience: {
         role1: {
             title: { es: 'Becario Universidad de Alcalá', en: 'Intern at Universidad de Alcalá' },
-            dateRange: { es: 'Octubre 2023 - Actualidad', en: 'October 2023 - Present' },
+            dateRange: { es: 'Octubre 2023 - Enero 2025', en: 'October 2023 - January 2025' },
             descr: {
                 es: 'Becario para la Universidad de Alcalá de Henares en “Evolución guiada por datos en desarrollos de SW industriales”, realizando proyectos de desarrollo web y móvil fullstack.',
                 en: 'Intern for Universidad de Alcalá in "Data-driven evolution in industrial SW developments", developing fullstack web and mobile applications.'
@@ -30,6 +30,24 @@ const translation = {
             descr: {
                 es: 'Colaborador en proyectos de investigación de desarrollo web fullstack y ponencias en congresos como',
                 en: 'Collaborator in fullstack web research projects and lectures at congresses such as'
+            }
+        },
+        role3: {
+            title: { es: 'Beca E-Commerce Microservicios Mark IT', en: 'Micro Service and E-Commerce Developer Internship' },
+            dateRange: { es: 'Febrero 2025 - Actualidad', en: 'February 2025 - Present' },
+            descr: {
+                es:
+                    <p>
+                        - Mejora continua, desarrollo de proyectos y ejecución de tareas asignadas en Go y Vue.js.<br />
+                        - Organización de tareas en JIRA según la priorización del Product Owner, siguiendo metodologías agile.<br />
+                        - Aseguramiento del cumplimiento de los estándares de calidad y metodología de despliegue de código (gitflow).
+                    </p>,
+                en:
+                    <p>
+                        - Continuous improvement, project development and microservice development written in Go and Vue.js<br />
+                        - Task organization with JIRA, following agile methodologies<br />
+                        - Software quality control and gitflow workflow standards.
+                    </p>
             }
         }
     },

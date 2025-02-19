@@ -9,6 +9,7 @@ import photo from './assets/foto_traje.jpg'
 import esFlag from './assets/spain_round_icon_64.png'
 import usFlag from './assets/united_states_of_america_round_icon_64.png'
 import uahLogo from './assets/uah.png'
+import carrefourLogo from './assets/carrefour_logo.jpg'
 import esCV from '../pdf/DavidAbejonHeras_CV.pdf'
 import enCV from '../pdf/DavidAbejonHeras_EN_CV.pdf'
 
@@ -267,6 +268,14 @@ function App() {
             <MdOutlineWorkOutline color='white' size="3rem" />
             <h1>{translation.titles.experience[language]}</h1>
           </div>
+          <Experience
+            className='experience-role'
+            title={translation.experience.role3.title[language]}
+            date={translation.experience.role3.dateRange[language]}
+            description={translation.experience.role3.descr[language]}
+            logo={carrefourLogo}
+          />
+          <hr></hr>
           <Experience
             className='experience-role'
             title={translation.experience.role1.title[language]}
