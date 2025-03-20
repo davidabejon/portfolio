@@ -28,6 +28,8 @@ pointLight.position.set(5, 5, 5);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
+// Random stars in background
+
 function createStar() {
     const geometry = new THREE.IcosahedronGeometry(1, 0);
     const material = new THREE.MeshStandardMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: .4 });
@@ -70,13 +72,16 @@ grid.material.transparent = true;
 grid.material.opacity = .4;
 scene.add(grid);
 
-// const verticalGrid = new THREE.GridHelper(400, 30);
-// verticalGrid.position.z = -67;
-// verticalGrid.position.y = 150;
-// verticalGrid.rotation.x = Math.PI / 2;
-// verticalGrid.material.transparent = true;
-// verticalGrid.material.opacity = .4;
-// scene.add(verticalGrid);
+// Resize Canvas on Window Resize
+
+window.addEventListener('resize', () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+});
 
 // Animation Loop
 
