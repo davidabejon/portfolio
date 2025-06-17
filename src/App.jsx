@@ -129,13 +129,15 @@ function App() {
     if (language == 'es') {
       var strings = [
         "Desarrollador Front-End^1500",
-        "Estudiante de Ingeniería Informática^1500"
+        "Ingeniero Informático^1500",
+        "Experiencia en React y Vue.js^1500"
       ]
     }
     else {
       var strings = [
         "Front-End Developer^1500",
-        "Informatics Engineering student^1500"
+        "Informatics Engineering^1500",
+        "React and Vue.js Developer^1500"
       ]
     }
 
@@ -329,7 +331,7 @@ function App() {
             liveDemo={translation.buttons.liveDemo[language]}
             liveDemoURL="https://gestiontfx.uah.es/GestTFx/"
             language={language}
-            />
+          />
 
           <Project
             className='evah'
