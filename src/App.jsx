@@ -376,7 +376,7 @@ function App() {
               </div>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">{translation.buttons.close[language]}</button>
+              <button type="button" className="pdf-close-button" data-bs-dismiss="modal">{translation.buttons.close[language]}</button>
             </div>
           </div>
         </div>
