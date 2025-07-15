@@ -205,7 +205,7 @@ function App() {
           <div className="type-wrap">
             <span className='type-animation' ref={el} />
           </div>
-          <p>{translation.about.phrase1[language]} <a className='web-link' href='https://uah.es'>Universidad de Alcalá de Henares</a>. {translation.about.phrase2[language]}</p>
+          <p>{translation.about.phrase1[language]}</p>
         </div>
 
         {

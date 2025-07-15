@@ -7,12 +7,8 @@ const translation = {
     },
     about: {
         phrase1: {
-            es: 'Estudiante de cuarto año de Ingeniería Informática en la',
-            en: 'Fourth year Computer Engineering student at the'
-        },
-        phrase2: {
-            es: 'Conocimientos de programación fullstack con JavaScript, Java, PostgreSQL y MySQL. Tengo un nivel de inglés C2 certificado por la Escuela Oficial de Idiomas. Apasionado por el desarrollo web de páginas dinámicas con React.js y metodologías ágiles.',
-            en: 'Fullstack programming skills with JavaScript, Java, PostgreSQL and MySQL. I have a C2 English level certified by the Escuela Oficial de Idiomas. Passionate about web development of dynamic pages with React.js and agile software development.'
+            es: '¡Hola! Soy David y soy recién graduado ingeniero informático por la Universidad de Alcalá. Siempre me he sentido atraído por el desarrollo web y tengo experiencia con frameworks y tecnologías como React.js, Vue.js, Java Servlets, MySQL entre muchas otras. En mi carrera me he centrado más en el desarrollo Front End, pero tanto en proyectos personales como en mis últimos puestos de trabajo he trabajdo también en el Back End con Go, Springboot y Java Servlets. Me mantengo siempre al día y trabajo integrando la IA en mi rutina de trabajo, basada en metodologías ágiles y SCRUM.',
+            en: "Hi! I'm David, a recent Computer Engineering graduate from the University of Alcalá with a strong interest in web development and experience in technologies like React.js, Vue.js, Java Servlets, and MySQL; while I’ve focused mainly on Front-End, I’ve also worked on the Back-End in personal and professional projects, staying up to date and integrating AI into my agile, SCRUM-based workflow."
         }
     },
     experience: {
