@@ -30,7 +30,7 @@ const translation = {
         },
         role3: {
             title: { es: 'Beca E-Commerce Microservicios Mark IT', en: 'Micro Service and E-Commerce Developer Internship' },
-            dateRange: { es: 'Febrero 2025 - Actualidad', en: 'February 2025 - Present' },
+            dateRange: { es: 'Febrero 2025 - Agosto 2025', en: 'February 2025 - August 2025' },
             descr: {
                 es:
                     <p>
