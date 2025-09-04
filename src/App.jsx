@@ -356,7 +356,7 @@ function App() {
 
       <footer>
         <a href='https://github.com/davidabejon/portfolio' className='source-code-footer web-link' target='_blank'><AiOutlineGithub color='white' size="1.2rem" className='mx-1' />{translation.buttons.repository[language]}</a>
-        <div>David Abejón, 2024</div>
+        <div>David Abejón, {new Date().getFullYear()}</div>
       </footer>
 
       {/* CV PDF Modal */}
