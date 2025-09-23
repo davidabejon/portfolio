@@ -292,6 +292,11 @@
 .experience-logo {
   border-radius: .5rem;
 }
+@media (max-width: 576px) {
+    .experience-logo {
+      margin-top: 1rem;
+    }
+}
 
 /* type animation */
 
@@ -365,6 +370,9 @@
 .evah::before {
   background-image: url(./assets/evah.JPG);
 }
+.archive::before {
+  background-image: url(./assets/archive.png);
+}
 
 .project-content {
   background-color: rgba(0,0,0,0.8);
@@ -380,7 +388,7 @@
 }
 @media (max-width: 480px) {
     .project-buttons {
-      margin-top: 0;
+      margin-top: 1rem;
     }
 }
 .project-button {
@@ -432,6 +440,22 @@
 .tag-mariadb {
   border: 1px solid #94ea1a;
   color: #71e276;
+}
+.tag-tailwind {
+  border: 1px solid #38bdf8;
+  color: #6ed0fa;
+}
+.tag-graphql {
+  border: 1px solid #e535ab;
+  color: #f06ed1;
+}
+.tag-threejs {
+  border: 1px solid #fff9d1;
+  color: #fff9d1;
+}
+.tag-r3f {
+  border: 1px solid #22c8ff;
+  color: #22c8ff;
 }
 
 /* footer */

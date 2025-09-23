@@ -48,6 +48,13 @@ const translation = {
         }
     },
     projects: {
+        archive: {
+            title: { es: 'Archive', en: 'Archive' },
+            descr: {
+                es: 'Archive es una aplicación web que permite a los usuarios consultar datos históricos y actuales de animación japonesa a través de una interfaz intuitiva y moderna.',
+                en: 'Archive is a web application that allows users to look up historical and current data about Japanese animation through an intuitive and modern interface.'
+            }
+        },
         connectedSounds: {
             title: { es: 'Connected Sounds', en: 'Connected Sounds' },
             descr: {

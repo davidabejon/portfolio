@@ -302,12 +302,30 @@ function App() {
           </div>
 
           <Project
+            className='archive'
+            title={translation.projects.archive.title[language]}
+            description={translation.projects.archive.descr[language]}
+            tags={[
+              <Tag type='react' text='React' />,
+              <Tag type='js' text='JavaScript' />,
+              <Tag type='tailwind' text='Tailwind CSS' />,
+              <Tag type='graphql' text='GraphQL' />,
+            ]}
+            repository={translation.buttons.repository[language]}
+            repositoryURL='https://github.com/davidabejon/archive'
+            liveDemo={translation.buttons.liveDemo[language]}
+            liveDemoURL='https://archive.davidabejon.cv/'
+          />
+
+          <Project
             className='connected-sounds'
             title={translation.projects.connectedSounds.title[language]}
             description={translation.projects.connectedSounds.descr[language]}
             tags={[
               <Tag type='react' text='React' />,
               <Tag type='js' text='JavaScript' />,
+              <Tag type='threejs' text='Three.js' />,
+              <Tag type='r3f' text='React Three Fiber' />,
               <Tag type='css' text='CSS' />
             ]}
             repository={translation.buttons.repository[language]}
