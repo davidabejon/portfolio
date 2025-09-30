@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const Experience = ({className, title, date, description, logo}) => {
   return (
     <div className={`${className} d-flex gap-sm-5 flex-wrap flex-sm-nowrap aling-items-center`}>

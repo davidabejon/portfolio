@@ -21,13 +21,11 @@ import { AiOutlineLinkedin } from "react-icons/ai"
 import { IoSend } from "react-icons/io5"
 import { FaRegCopy } from "react-icons/fa"
 import { FaCheck } from "react-icons/fa"
-import { IoHammerOutline } from "react-icons/io5";
+import { IoHammerOutline } from "react-icons/io5"
 import { MdLanguage } from "react-icons/md"
 import { MdOutlineWorkOutline } from "react-icons/md"
 import { IoMdDownload } from "react-icons/io"
 import { FaRegFilePdf } from "react-icons/fa6"
-import { TbBrandGithubFilled } from "react-icons/tb"
-import { HiOutlineExternalLink } from "react-icons/hi"
 import { AiOutlineGithub } from "react-icons/ai"
 
 // react-pdf
@@ -50,8 +48,8 @@ import translation from './language'
 const plugins = [new AutoPlay({ duration: '3000' })]
 
 // language url parameter support
-import qs from "qs";
-import { createBrowserHistory } from "history";
+import qs from "qs"
+import { createBrowserHistory } from "history"
 
 // type animation
 import Typed from 'typed.js'
@@ -61,52 +59,52 @@ import Project from './components/Project'
 
 function App() {
 
-  const [language, setLanguage] = useState(null);
-  const [emailCopied, setEmailCopied] = useState(false);
+  const [language, setLanguage] = useState(null)
+  const [emailCopied, setEmailCopied] = useState(false)
 
   const email = "davidabejonheras@gmail.com"
 
   const history = createBrowserHistory()
 
   // Create reference to store the DOM element containing the animation
-  const el = useRef(null);
+  const el = useRef(null)
   // Create reference to store the Typed instance itself
-  const typed = useRef(null);
+  const typed = useRef(null)
 
   // refs to scroll to on navtop click
-  const contactRef = useRef(null);
-  const experienceRef = useRef(null);
-  const projectsRef = useRef(null);
+  const contactRef = useRef(null)
+  const experienceRef = useRef(null)
+  const projectsRef = useRef(null)
 
   const changeLanguage = () => {
     if (language == 'es') {
-      setLanguage('en');
+      setLanguage('en')
       history.push(`?language=en`)
     }
     else {
-      setLanguage('es');
+      setLanguage('es')
       history.push(`?language=es`)
     }
   }
 
-  const copyEmail = (e) => {
-    navigator.clipboard.writeText(email);
+  const copyEmail = () => {
+    navigator.clipboard.writeText(email)
     document.getElementById('copy-icon-wrapper').classList.remove('show')
     document.getElementById('copy-icon-wrapper').classList.add('hide')
     setTimeout(() => {
-      setEmailCopied(true);
+      setEmailCopied(true)
       document.getElementById('copy-icon-wrapper').classList.remove('hide')
       document.getElementById('copy-icon-wrapper').classList.add('show')
-    }, 200);
+    }, 200)
     setTimeout(() => {
       document.getElementById('copy-icon-wrapper').classList.remove('show')
       document.getElementById('copy-icon-wrapper').classList.add('hide')
       setTimeout(() => {
-        setEmailCopied(false);
+        setEmailCopied(false)
         document.getElementById('copy-icon-wrapper').classList.remove('hide')
         document.getElementById('copy-icon-wrapper').classList.add('show')
-      }, 200);
-    }, 2000);
+      }, 200)
+    }, 2000)
   }
 
   // scroll view to referenced element
@@ -114,10 +112,10 @@ function App() {
 
   // recover language state on page reload
   useEffect(() => {
-    const filterParams = history.location.search.substring(1);
-    const filtersFromParams = qs.parse(filterParams);
+    const filterParams = history.location.search.substring(1)
+    const filtersFromParams = qs.parse(filterParams)
     if (filtersFromParams.language) {
-      setLanguage(filtersFromParams.language);
+      setLanguage(filtersFromParams.language)
     }
     else {
       setLanguage('es')
@@ -146,15 +144,15 @@ function App() {
       typeSpeed: 50,
       backSpeed: 50,
       loop: true
-    };
+    }
 
     // elRef refers to the <span> rendered below
-    typed.current = new Typed(el.current, options);
+    typed.current = new Typed(el.current, options)
 
     return () => {
       // Make sure to destroy Typed instance during cleanup
       // to prevent memory leaks
-      typed.current.destroy();
+      typed.current.destroy()
     }
   }, [language])
 
