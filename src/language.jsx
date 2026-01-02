@@ -1,3 +1,6 @@
+import uahLogo from './assets/uah.png'
+import carrefourLogo from './assets/carrefour_logo.jpg'
+import insureaLogo from './assets/insureatechnologies_logo.jpg'
 const translation = {
     titles: {
         about: { es: 'Sobre mí', en: 'About' },
@@ -11,24 +14,26 @@ const translation = {
             en: "Hi! I'm David, a recent Computer Engineering graduate from the University of Alcalá with a strong interest in web development and experience in technologies like React.js, Vue.js, Java Servlets, and MySQL; while I’ve focused mainly on Front-End, I’ve also worked on the Back-End in personal and professional projects, staying up to date and integrating AI into my agile, SCRUM-based workflow."
         }
     },
-    experience: {
-        role1: {
+    experience: [
+        {
             title: { es: 'Becario Universidad de Alcalá', en: 'Intern at Universidad de Alcalá' },
             dateRange: { es: 'Octubre 2023 - Enero 2025', en: 'October 2023 - January 2025' },
             descr: {
                 es: 'Becario para la Universidad de Alcalá de Henares en “Evolución guiada por datos en desarrollos de SW industriales”, realizando proyectos de desarrollo web y móvil fullstack.',
                 en: 'Intern for Universidad de Alcalá in "Data-driven evolution in industrial SW developments", developing fullstack web and mobile applications.'
-            }
+            },
+            logo: uahLogo
         },
-        role2: {
+        {
             title: { es: 'Colaborador en Proyectos de Investigación', en: 'Collaborator on research projects' },
             dateRange: { es: 'Julio 2023 - Septiembre 2023', en: 'July 2023 - September 2023' },
             descr: {
                 es: 'Colaborador en proyectos de investigación de desarrollo web fullstack y ponencias en congresos como',
                 en: 'Collaborator in fullstack web research projects and lectures at congresses such as'
-            }
+            },
+            logo: uahLogo
         },
-        role3: {
+        {
             title: { es: 'Beca E-Commerce Microservicios Mark IT', en: 'Micro Service and E-Commerce Developer Internship' },
             dateRange: { es: 'Febrero 2025 - Agosto 2025', en: 'February 2025 - August 2025' },
             descr: {
@@ -43,10 +48,30 @@ const translation = {
                         - Continuous improvement, project development and microservice development written in Go and Vue.js<br />
                         - Task organization with JIRA, following agile methodologies<br />
                         - Software quality control and gitflow workflow standards.
+                    </p>,
+            },
+            logo: carrefourLogo
+        },
+        {
+            title: { es: 'Desarrollador Front-End', en: 'Front-End Developer' },
+            dateRange: { es: 'Octubre 2025 - Actualidad', en: 'October 2025 - Present' },
+            descr: {
+                es:
+                    <p>
+                        - Desarrollo y mantenimiento de interfaces de usuario utilizando React.js y Next.js.<br />
+                        - Automatización de procesos e integración entre compañías del mundo de los seguros.<br />
+                        - Calidad de código y revisiones siguiendo metodologías ágiles y SCRUM.
+                    </p>,
+                en:
+                    <p>
+                        - Development and maintenance of user interfaces using React.js and Next.js.<br />
+                        - Process automation and integration between insurance companies.<br />
+                        - Code quality and reviews following agile methodologies and SCRUM.
                     </p>
-            }
-        }
-    },
+            },
+            logo: insureaLogo
+        },
+    ],
     projects: {
         archive: {
             title: { es: 'Archive', en: 'Archive' },

@@ -8,8 +8,6 @@ import './App.css'
 import photo from './assets/foto_traje.jpg'
 import esFlag from './assets/spain_round_icon_64.png'
 import usFlag from './assets/united_states_of_america_round_icon_64.png'
-import uahLogo from './assets/uah.png'
-import carrefourLogo from './assets/carrefour_logo.jpg'
 import esCV from '../pdf/DavidAbejonHeras_CV.pdf'
 import enCV from '../pdf/DavidAbejonHeras_EN_CV.pdf'
 
@@ -268,29 +266,21 @@ function App() {
             <MdOutlineWorkOutline color='white' size="3rem" />
             <h1>{translation.titles.experience[language]}</h1>
           </div>
-          <Experience
-            className='experience-role'
-            title={translation.experience.role3.title[language]}
-            date={translation.experience.role3.dateRange[language]}
-            description={translation.experience.role3.descr[language]}
-            logo={carrefourLogo}
-          />
-          <hr></hr>
-          <Experience
-            className='experience-role'
-            title={translation.experience.role1.title[language]}
-            date={translation.experience.role1.dateRange[language]}
-            description={translation.experience.role1.descr[language]}
-            logo={uahLogo}
-          />
-          <hr></hr>
-          <Experience
-            className='experience-role'
-            title={translation.experience.role2.title[language]}
-            date={translation.experience.role2.dateRange[language]}
-            description={<>{translation.experience.role2.descr[language]} <a className='web-link' href='https://www.linkedin.com/in/davidabejonheras/overlay/1635548535763/single-media-viewer/?profileId=ACoAADvqQIYBq4sXvOYS1vNYzvMQcLrvhTrm4W0' target='_blank'>COMPDES2023</a>.</>}
-            logo={uahLogo}
-          />
+          {
+            [...translation.experience].reverse().map((item, index) => (
+              <>
+                <Experience
+                  key={index}
+                  className='experience-role'
+                  title={item.title[language]}
+                  date={item.dateRange[language]}
+                  description={item.descr[language]}
+                  logo={item.logo}
+                />
+                {index < translation.experience.length - 1 && <hr></hr>}
+              </>
+            ))
+          }
         </div>
 
         <div className='projects pb-5 d-flex flex-column gap-5' ref={projectsRef}>
