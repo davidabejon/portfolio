@@ -16,20 +16,20 @@ const translation = {
     },
     experience: [
         {
+            title: { es: 'Colaborador en Proyectos de Investigación', en: 'Collaborator on research projects' },
+            dateRange: { es: 'Julio 2023 - Septiembre 2023', en: 'July 2023 - September 2023' },
+            descr: {
+                es: <p>Colaborador en proyectos de investigación de desarrollo web fullstack y ponencias en congresos como <a className='web-link' href='https://www.linkedin.com/in/davidabejonheras/overlay/1635548535763/single-media-viewer/?profileId=ACoAADvqQIYBq4sXvOYS1vNYzvMQcLrvhTrm4W0' target='_blank'>COMPDES2023</a>.</p>,
+                en: <p>Collaborator in fullstack web research projects and lectures at congresses such as <a className='web-link' href='https://www.linkedin.com/in/davidabejonheras/overlay/1635548535763/single-media-viewer/?profileId=ACoAADvqQIYBq4sXvOYS1vNYzvMQcLrvhTrm4W0' target='_blank'>COMPDES2023</a>.</p>
+            },
+            logo: uahLogo
+        },
+        {
             title: { es: 'Becario Universidad de Alcalá', en: 'Intern at Universidad de Alcalá' },
             dateRange: { es: 'Octubre 2023 - Enero 2025', en: 'October 2023 - January 2025' },
             descr: {
                 es: 'Becario para la Universidad de Alcalá de Henares en “Evolución guiada por datos en desarrollos de SW industriales”, realizando proyectos de desarrollo web y móvil fullstack.',
                 en: 'Intern for Universidad de Alcalá in "Data-driven evolution in industrial SW developments", developing fullstack web and mobile applications.'
-            },
-            logo: uahLogo
-        },
-        {
-            title: { es: 'Colaborador en Proyectos de Investigación', en: 'Collaborator on research projects' },
-            dateRange: { es: 'Julio 2023 - Septiembre 2023', en: 'July 2023 - September 2023' },
-            descr: {
-                es: 'Colaborador en proyectos de investigación de desarrollo web fullstack y ponencias en congresos como',
-                en: 'Collaborator in fullstack web research projects and lectures at congresses such as'
             },
             logo: uahLogo
         },
