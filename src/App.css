@@ -373,6 +373,10 @@
 .archive::before {
   background-image: url(./assets/archive.png);
 }
+.spotify3ds::before {
+  background-image: url(./assets/spotify-3ds.png);
+  background-position: top;
+}
 
 .project-content {
   background-color: rgba(0,0,0,0.8);
@@ -456,6 +460,18 @@
 .tag-r3f {
   border: 1px solid #22c8ff;
   color: #22c8ff;
+}
+.tag-c {
+  border: 1px solid #aaa6a6;
+  color: #aaa6a6;
+}
+.tag-devkitpro {
+  border: 1px solid #2097f8;
+  color: #2097f8;
+}
+.tag-python {
+  border: 1px solid #78ceff;
+  color: #78ceff;
 }
 
 /* footer */

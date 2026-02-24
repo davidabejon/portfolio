@@ -290,6 +290,21 @@ function App() {
           </div>
 
           <Project
+            className='spotify3ds'
+            title={translation.projects.spotify3ds.title[language]}
+            description={translation.projects.spotify3ds.descr[language]}
+            tags={[
+              <Tag type='c' text='C' />,
+              <Tag type='devkitpro' text='DevkitPro' />,
+              <Tag type='python' text='Python' />,
+            ]}
+            repository={translation.buttons.repository[language]}
+            repositoryURL='https://github.com/davidabejon/spotify3ds'
+            liveDemo={translation.buttons.liveDemo[language]}
+            liveDemoDisabled
+          />
+
+          <Project
             className='archive'
             title={translation.projects.archive.title[language]}
             description={translation.projects.archive.descr[language]}
@@ -336,23 +351,6 @@ function App() {
             repositoryDisabled
             liveDemo={translation.buttons.liveDemo[language]}
             liveDemoURL="https://gestiontfx.uah.es/GestTFx/"
-            language={language}
-          />
-
-          <Project
-            className='evah'
-            title={translation.projects.evah.title[language]}
-            description={translation.projects.evah.descr[language]}
-            tags={[
-              <Tag type='react' text='React' />,
-              <Tag type='js' text='JavaScript' />,
-              <Tag type='css' text='CSS' />,
-              <Tag type='javaservlets' text='Java Servlets' />,
-            ]}
-            repository={translation.buttons.repository[language]}
-            repositoryDisabled
-            liveDemo={translation.buttons.liveDemo[language]}
-            liveDemoDisabled
             language={language}
           />
 

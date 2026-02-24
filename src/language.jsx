@@ -73,6 +73,13 @@ const translation = {
         },
     ],
     projects: {
+        spotify3ds: {
+            title: { es: 'Spotify 3DS', en: 'Spotify 3DS' },
+            descr: {
+                es: 'Spotify 3DS es una aplicación nativa para la familiar de consolas Nintendo 3DS desarrollada con el kit de desarrollo de código abierto devkitPro. Permite el control remoto de la sesión de reproducción de un usuario de Spotify a través de una interfaz adaptada a las características de la consola.',
+                en: 'Spotify 3DS is a native application for the Nintendo 3DS console developed with the open-source development kit devkitPro. It allows remote control of a user\'s Spotify playback session through an interface adapted to the console\'s features.'
+            }
+        },
         archive: {
             title: { es: 'Archive', en: 'Archive' },
             descr: {
