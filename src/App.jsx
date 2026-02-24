@@ -299,7 +299,7 @@ function App() {
               <Tag type='python' text='Python' />,
             ]}
             repository={translation.buttons.repository[language]}
-            repositoryURL='https://github.com/davidabejon/spotify3ds'
+            repositoryURL='https://github.com/davidabejon/spotify-3ds'
             liveDemo={translation.buttons.liveDemo[language]}
             liveDemoDisabled
           />
