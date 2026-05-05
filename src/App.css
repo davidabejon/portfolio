@@ -14,23 +14,26 @@
 }
 
 .app {
-  width: 100vw;
-  margin-top: 2rem;
-  padding-right: 8vw;
-  padding-left: 8vw;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  /* top padding leaves space for fixed nav */
+  padding: 5.5rem 1.25rem 2.5rem;
+  box-sizing: border-box;
 }
 
-@media (min-width: 770px) {
-    .app {
-      padding-right: 20vw;
-      padding-left: 20vw;
-    }
+@media (min-width: 768px) {
+  .app {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
-@media (min-width: 1900px) {
-    .app {
-      padding-right: 0;
-      padding-left: 0;
-    }
+
+@media (min-width: 1200px) {
+  .app {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 /* utilities */
@@ -330,6 +333,7 @@
   min-height: 30rem;
   padding: 4rem;
   position: relative;
+  overflow: hidden;
 }
 @media (max-width: 480px) {
   .project {
@@ -339,15 +343,18 @@
 .project::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  inset: 0;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: brightness(0.8) blur(.15rem);
+  filter: brightness(0.45) saturate(0.7) blur(2px);
   border-radius: 1rem;
-  box-shadow: 0px 0px 40px 5px rgba(0,0,0,0.6);
   z-index: -1;
+  transition: filter 0.4s ease, transform 0.5s ease;
+}
+.project:hover::before {
+  filter: brightness(0.55) saturate(0.85);
+  transform: scale(1.03);
 }
 
 .weather-app::before {
