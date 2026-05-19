@@ -178,7 +178,7 @@ function App() {
             <Flicking circular={true} horizontal={false} plugins={plugins}>
               {
                 Array.from({ length: 10 }, (_, i) => i).map(i => (
-                  <p key={i}>David Abejón</p>
+                  <p style={{ marginTop: 10, marginBottom: 10 }} key={i}>David Abejón</p>
                 ))
               }
             </Flicking>
