@@ -1,389 +1,252 @@
-// hooks
 import { useEffect, useRef, useState } from 'react'
-
-// css files
-import './App.css'
-
-// resources
-import photo from './assets/foto_traje.jpg'
-import esFlag from './assets/spain_round_icon_64.png'
-import usFlag from './assets/united_states_of_america_round_icon_64.png'
-import esCV from '../pdf/DavidAbejonHeras_CV.pdf'
-import enCV from '../pdf/DavidAbejonHeras_EN_CV.pdf'
-
-// icons
-import { IoCodeSlashOutline } from "react-icons/io5"
-import { IoAtSharp } from "react-icons/io5"
-import { LuGithub } from "react-icons/lu"
-import { AiOutlineLinkedin } from "react-icons/ai"
-import { IoSend } from "react-icons/io5"
-import { FaRegCopy } from "react-icons/fa"
-import { FaCheck } from "react-icons/fa"
-import { IoHammerOutline } from "react-icons/io5"
-import { MdLanguage } from "react-icons/md"
-import { MdOutlineWorkOutline } from "react-icons/md"
-import { IoMdDownload } from "react-icons/io"
-import { FaRegFilePdf } from "react-icons/fa6"
-import { AiOutlineGithub } from "react-icons/ai"
-
-// react-pdf
-import { Document, Page } from 'react-pdf'
+import { Document, Page, pdfjs } from 'react-pdf'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
-import { pdfjs } from 'react-pdf'
-
-// react-pdf workers config
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.mjs',
-  import.meta.url,
-).toString()
-
-// flicking
-import Flicking from "@egjs/react-flicking"
-import "@egjs/react-flicking/dist/flicking.css"
-import { AutoPlay } from "@egjs/flicking-plugins"
-import translation from './language'
-const plugins = [new AutoPlay({ duration: '3000' })]
-
-// language url parameter support
-import qs from "qs"
-import { createBrowserHistory } from "history"
-
-// type animation
 import Typed from 'typed.js'
+import { IoArrowForward, IoCodeSlashOutline, IoSend, IoClose } from 'react-icons/io5'
+import { LuGithub } from 'react-icons/lu'
+import { AiOutlineLinkedin } from 'react-icons/ai'
+import { FaRegCopy, FaCheck } from 'react-icons/fa'
+import { MdLanguage } from 'react-icons/md'
+import { IoMdDownload } from 'react-icons/io'
+import { FaRegFilePdf } from 'react-icons/fa6'
+import photo from './assets/foto_traje.jpg'
+import spotifyImage from './assets/spotify-3ds.png'
+import archiveImage from './assets/archive.png'
+import radioImage from './assets/connected-sounds.JPG'
+import gestImage from './assets/gesttfx.JPG'
+import esCV from '../pdf/DavidAbejonHeras_CV.pdf'
+import enCV from '../pdf/DavidAbejonHeras_EN_CV.pdf'
+import translation from './language'
 import { Experience } from './components/Experience'
 import { Tag } from './components/Tag'
 import Project from './components/Project'
+import './App.css'
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).toString()
+
+const projects = [
+  { id: 'spotify3ds', image: spotifyImage, tags: [['c', 'C'], ['devkitpro', 'devkitPro'], ['python', 'Python']], repositoryURL: 'https://github.com/davidabejon/spotify-3ds' },
+  { id: 'archive', image: archiveImage, tags: [['react', 'React'], ['js', 'JavaScript'], ['tailwind', 'Tailwind CSS'], ['graphql', 'GraphQL']], repositoryURL: 'https://github.com/davidabejon/archive', liveDemoURL: 'https://archive.davidabejon.cv/' },
+  { id: 'connectedSounds', image: radioImage, tags: [['react', 'React'], ['js', 'JavaScript'], ['threejs', 'Three.js'], ['r3f', 'React Three Fiber'], ['css', 'CSS']], repositoryURL: 'https://github.com/davidabejon/connected-sounds', liveDemoURL: 'https://radio.davidabejon.cv/' },
+  { id: 'gesttfx', image: gestImage, tags: [['react', 'React'], ['css', 'CSS'], ['javaservlets', 'Java Servlets'], ['mariadb', 'MariaDB']], liveDemoURL: 'https://gestiontfx.uah.es/GestTFx/' },
+]
+const companies = ['Universidad de Alcalá', 'Universidad de Alcalá', 'Carrefour', 'Insurea Technologies']
+const sections = ['experience', 'projects', 'contact']
+const email = 'davidabejonheras@gmail.com'
+
+function readLanguage() {
+  return new URLSearchParams(window.location.search).get('language') === 'en' ? 'en' : 'es'
+}
 
 function App() {
+  const [language, setLanguage] = useState(readLanguage)
+  const [activeSection, setActiveSection] = useState('')
+  const [copyStatus, setCopyStatus] = useState('idle')
+  const [cvOpen, setCvOpen] = useState(false)
+  const [pdfWidth, setPdfWidth] = useState(300)
+  const [pdfError, setPdfError] = useState(false)
+  const typedElement = useRef(null)
+  const dialogRef = useRef(null)
+  const pdfContainer = useRef(null)
+  const copyTimer = useRef(null)
+  const ui = Object.fromEntries(Object.entries(translation.ui).map(([key, value]) => [key, value[language]]))
+  const cv = language === 'es' ? esCV : enCV
 
-  const [language, setLanguage] = useState(null)
-  const [emailCopied, setEmailCopied] = useState(false)
-
-  const email = "davidabejonheras@gmail.com"
-
-  const history = createBrowserHistory()
-
-  // Create reference to store the DOM element containing the animation
-  const el = useRef(null)
-  // Create reference to store the Typed instance itself
-  const typed = useRef(null)
-
-  // refs to scroll to on navtop click
-  const contactRef = useRef(null)
-  const experienceRef = useRef(null)
-  const projectsRef = useRef(null)
-
-  const changeLanguage = () => {
-    if (language == 'es') {
-      setLanguage('en')
-      history.push(`?language=en`)
-    }
-    else {
-      setLanguage('es')
-      history.push(`?language=es`)
-    }
-  }
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText(email)
-    document.getElementById('copy-icon-wrapper').classList.remove('show')
-    document.getElementById('copy-icon-wrapper').classList.add('hide')
-    setTimeout(() => {
-      setEmailCopied(true)
-      document.getElementById('copy-icon-wrapper').classList.remove('hide')
-      document.getElementById('copy-icon-wrapper').classList.add('show')
-    }, 200)
-    setTimeout(() => {
-      document.getElementById('copy-icon-wrapper').classList.remove('show')
-      document.getElementById('copy-icon-wrapper').classList.add('hide')
-      setTimeout(() => {
-        setEmailCopied(false)
-        document.getElementById('copy-icon-wrapper').classList.remove('hide')
-        document.getElementById('copy-icon-wrapper').classList.add('show')
-      }, 200)
-    }, 2000)
-  }
-
-  // scroll view to referenced element
-  const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop - document.getElementById('nav-top').offsetHeight - 10)
-
-  // recover language state on page reload
   useEffect(() => {
-    const filterParams = history.location.search.substring(1)
-    const filtersFromParams = qs.parse(filterParams)
-    if (filtersFromParams.language) {
-      setLanguage(filtersFromParams.language)
-    }
-    else {
-      setLanguage('es')
-      history.push('?language=es')
-    }
+    const url = new URL(window.location.href)
+    url.searchParams.set('language', language)
+    window.history.replaceState(null, '', url)
+    document.documentElement.lang = language
+  }, [language])
+
+  useEffect(() => {
+    const syncLanguage = () => setLanguage(readLanguage())
+    window.addEventListener('popstate', syncLanguage)
+    return () => window.removeEventListener('popstate', syncLanguage)
   }, [])
 
   useEffect(() => {
-    if (language == 'es') {
-      var strings = [
-        "Desarrollador Front-End^1500",
-        "Ingeniero Informático^1500",
-        "Experiencia en React y Vue.js^1500"
-      ]
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let typed
+    function updateAnimation() {
+      typed?.destroy()
+      if (preference.matches) {
+        typedElement.current.textContent = translation.ui.roles[language][0]
+      } else {
+        typed = new Typed(typedElement.current, {
+          strings: translation.ui.roles[language],
+          typeSpeed: 45,
+          backSpeed: 25,
+          backDelay: 1800,
+          loop: true,
+        })
+      }
     }
-    else {
-      var strings = [
-        "Front-End Developer^1500",
-        "Informatics Engineering^1500",
-        "React and Vue.js Developer^1500"
-      ]
-    }
-
-    var options = {
-      strings,
-      typeSpeed: 50,
-      backSpeed: 50,
-      loop: true
-    }
-
-    // elRef refers to the <span> rendered below
-    typed.current = new Typed(el.current, options)
-
+    updateAnimation()
+    preference.addEventListener('change', updateAnimation)
     return () => {
-      // Make sure to destroy Typed instance during cleanup
-      // to prevent memory leaks
-      typed.current.destroy()
+      typed?.destroy()
+      preference.removeEventListener('change', updateAnimation)
     }
   }, [language])
 
+  useEffect(() => {
+    const updateSection = () => {
+      const current = sections.filter(id => document.getElementById(id).getBoundingClientRect().top <= 180).at(-1)
+      const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4
+      setActiveSection(atBottom ? 'contact' : current || '')
+    }
+    updateSection()
+    window.addEventListener('scroll', updateSection, { passive: true })
+    window.addEventListener('resize', updateSection)
+    return () => {
+      window.removeEventListener('scroll', updateSection)
+      window.removeEventListener('resize', updateSection)
+    }
+  }, [])
+
+  useEffect(() => () => clearTimeout(copyTimer.current), [])
+
+  useEffect(() => {
+    if (!cvOpen) return
+    dialogRef.current.showModal()
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const observer = new ResizeObserver(([entry]) => setPdfWidth(Math.floor(entry.contentRect.width)))
+    observer.observe(pdfContainer.current)
+    return () => {
+      observer.disconnect()
+      document.body.style.overflow = previousOverflow
+    }
+  }, [cvOpen])
+
+  function changeLanguage() {
+    const nextLanguage = language === 'es' ? 'en' : 'es'
+    const url = new URL(window.location.href)
+    url.searchParams.set('language', nextLanguage)
+    window.history.pushState(null, '', url)
+    setLanguage(nextLanguage)
+  }
+
+  async function copyEmail() {
+    clearTimeout(copyTimer.current)
+    try {
+      await navigator.clipboard.writeText(email)
+      setCopyStatus('copied')
+      copyTimer.current = setTimeout(() => setCopyStatus('idle'), 2500)
+    } catch (error) {
+      console.error('Could not copy the email address.', error)
+      setCopyStatus('error')
+    }
+  }
+
+  function closeCV() {
+    dialogRef.current.close()
+    setCvOpen(false)
+  }
+
   return (
     <>
-      <div className='language'>
-        <button onClick={changeLanguage} title={translation.elementDescriptions.changeLanguage[language]}>
-          {
-            window.innerWidth > 480 ?
-              <MdLanguage color='white' size="2rem" />
-              : ''
-          }
-          {
-            language == 'es' ?
-              <img className='flag' src={esFlag}></img>
-              :
-              <img className='flag' src={usFlag}></img>
-          }
-        </button>
-      </div>
-      {
-        window.innerWidth > 480 ?
-          <div className='logo' onClick={() => window.scrollTo(0, 0)}>
-            <Flicking circular={true} horizontal={false} plugins={plugins}>
-              {
-                Array.from({ length: 10 }, (_, i) => i).map(i => (
-                  <p style={{ marginTop: 10, marginBottom: 10 }} key={i}>David Abejón</p>
-                ))
-              }
-            </Flicking>
-          </div>
-          : ''
-      }
-      <div className='nav-top' id='nav-top'>
-        <button onClick={() => scrollToRef(contactRef)}>{translation.titles.contact[language]}</button>
-        <button onClick={() => scrollToRef(experienceRef)}>{translation.titles.experience[language]}</button>
-        <button onClick={() => scrollToRef(projectsRef)}>{translation.titles.projects[language]}</button>
-      </div>
-      <div className='app container'>
-
-        <div className='about-me mb-4'>
-          <img className='photo' src={photo}></img>
-          <div className='d-flex align-items-center gap-2 mb-2'>
-            <IoCodeSlashOutline color='white' size="3rem" />
-            <h1>David Abejón</h1>
-          </div>
-          <div className="type-wrap">
-            <span className='type-animation' ref={el} />
-          </div>
-          <p>{translation.about.phrase1[language]}</p>
+      <a className="skip-link" href="#main">{ui.skip}</a>
+      <header className="site-header">
+        <div className="header-inner">
+          <a className="brand" href="#home" aria-label={ui.home}>
+            <IoCodeSlashOutline aria-hidden="true" /><span>David<span className="brand-accent">.</span></span>
+          </a>
+          <nav aria-label={ui.navigation}>
+            {sections.map(id => (
+              <a key={id} href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined}>
+                {translation.titles[id][language]}
+              </a>
+            ))}
+          </nav>
+          <button className="language-button" onClick={changeLanguage} aria-label={translation.elementDescriptions.changeLanguage[language]}>
+            <MdLanguage aria-hidden="true" /><span>{language.toUpperCase()}</span><span className="language-alternative">/ {language === 'es' ? 'EN' : 'ES'}</span>
+          </button>
         </div>
+      </header>
 
-        {
-          window.innerWidth > 480 ?
-            <button
-              className='link d-flex gap-2 align-items-center mb-5'
-              data-bs-toggle="modal"
-              data-bs-target="#pdfModal"
-            >
-              <FaRegFilePdf color='white' size='2.5rem' />
-              <h4>Curriculum Vitae</h4>
-            </button>
-            :
-            <a href={language == 'es' ? esCV : enCV} download className='link d-flex gap-2 align-items-center mb-5'>
-              <FaRegFilePdf color='white' size='2.5rem' />
-              <h4>Curriculum Vitae</h4>
-            </a>
-        }
-
-        <div className='contact mb-5 d-flex flex-column gap-3' ref={contactRef}>
-          <div className='d-flex align-items-center gap-2 mb-2'>
-            <IoAtSharp color='white' size="3rem" />
-            <h1>{translation.titles.contact[language]}</h1>
+      <main className="app" id="main">
+        <section className="hero" id="home" aria-labelledby="hero-title">
+          <div className="hero-content">
+            <p className="eyebrow"><span className="status-dot" />{ui.heroLabel}</p>
+            <h1 id="hero-title">David Abejón<span className="title-dot">.</span></h1>
+            <div className="type-wrap">
+              <span className="sr-only">{translation.ui.roles[language][0]}</span>
+              <span aria-hidden="true"><span ref={typedElement} /></span>
+            </div>
+            <p className="hero-intro">{ui.intro}</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#projects">{ui.viewProjects}<IoArrowForward aria-hidden="true" /></a>
+              <button className="button button-secondary" onClick={() => { setPdfError(false); setCvOpen(true) }}><FaRegFilePdf aria-hidden="true" />{ui.viewCV}</button>
+              <a className="hero-contact" href="#contact">{translation.titles.contact[language]}<IoArrowForward aria-hidden="true" /></a>
+            </div>
           </div>
-
-          <div className='links'>
-            <a className='link' href='https://github.com/davidabejon' target='_blank'>
-              <LuGithub color='white' size="1.5rem" />
-              <h4 className='m-0'>GitHub</h4>
-            </a>
-            <a className='link' href={language == 'es' ? 'https://www.linkedin.com/in/davidabejonheras/' : 'https://www.linkedin.com/in/davidabejonheras/?locale=en_US'} target='_blank'>
-              <AiOutlineLinkedin color='white' size="1.5rem" />
-              <h4 className='m-0'>Linkedin</h4>
-            </a>
+          <div className="portrait-frame">
+            <img className="photo" src={photo} alt={ui.portrait} width="240" height="280" />
+            {/* <span className="portrait-caption">TODO: think about what to say here</span> */}
           </div>
+          <a className="hero-scroll eyebrow" href="#experience"><span>↓</span>{ui.explore}</a>
+        </section>
 
-          <div className='email'>
-            <input className='email-input' readOnly value={email}></input>
-            <button
-              type='button'
-              className='copy-button d-flex align-items-center'
-              title={translation.elementDescriptions.copy[language]}
-              onClick={copyEmail}>
-              <div id='copy-icon-wrapper' style={{ transform: 'translateY(-3px)' }}>
-                {
-                  emailCopied ?
-                    <FaCheck color='white' size="1.25rem" />
-                    :
-                    <FaRegCopy color='white' size="1.25rem" />
-                }
+        <section className="content-section" id="experience" aria-labelledby="experience-title">
+          <div className="section-heading"><p className="eyebrow">01 / {ui.journey}</p><h2 id="experience-title">{translation.titles.experience[language]}</h2><p>{ui.experienceIntro}</p></div>
+          <div className="timeline">
+            {translation.experience.map((item, index) => ({ ...item, company: companies[index] })).reverse().map((item, index) => (
+              <Experience key={`${item.company}-${item.dateRange.en}`} title={item.title[language]} date={item.dateRange[language]} description={item.descr[language]} logo={item.logo} company={item.company} current={index === 0} currentLabel={ui.current} />
+            ))}
+          </div>
+        </section>
+
+        <section className="content-section" id="projects" aria-labelledby="projects-title">
+          <div className="section-heading"><p className="eyebrow">02 / {ui.selectedWork}</p><h2 id="projects-title">{translation.titles.projects[language]}</h2><p>{ui.projectsIntro}</p></div>
+          <div className="project-list">
+            {projects.map((project, index) => (
+              <Project key={project.id} {...project} number={String(index + 1).padStart(2, '0')} title={translation.projects[project.id].title[language]} description={translation.projects[project.id].descr[language]} tags={project.tags.map(([type, text]) => <Tag key={type} type={type} text={text} />)} repository={translation.buttons.repository[language]} liveDemo={translation.buttons.liveDemo[language]} language={language} />
+            ))}
+          </div>
+        </section>
+
+        <section className="content-section contact-section" id="contact" aria-labelledby="contact-title">
+          <div className="section-heading"><p className="eyebrow">03 / {ui.connect}</p><h2 id="contact-title">{translation.titles.contact[language]}</h2><p>{ui.contactIntro}</p></div>
+          <div className="contact-panel">
+            <div className="email-block">
+              <label className="eyebrow" htmlFor="contact-email">EMAIL</label>
+              <div className="email">
+                <input id="contact-email" className="email-input" readOnly value={email} />
+                <button className="icon-button" onClick={copyEmail} aria-label={translation.elementDescriptions.copy[language]} title={translation.elementDescriptions.copy[language]}>{copyStatus === 'copied' ? <FaCheck aria-hidden="true" /> : <FaRegCopy aria-hidden="true" />}</button>
+                <a className="icon-button" href={`mailto:${email}`} aria-label={translation.elementDescriptions.send[language]} title={translation.elementDescriptions.send[language]}><IoSend aria-hidden="true" /></a>
               </div>
-            </button>
-            <a href={'mailto:' + email} className='send-button d-flex align-items-center' title={translation.elementDescriptions.send[language]}>
-              <IoSend color='white' size="1.25rem" />
-            </a>
+              <p className={`copy-feedback ${copyStatus === 'error' ? 'is-error' : ''}`} role="status">{copyStatus === 'copied' ? ui.copied : copyStatus === 'error' ? ui.copyError : ''}</p>
+            </div>
+            <div className="social-links">
+              <a className="button button-secondary" href="https://github.com/davidabejon" target="_blank" rel="noreferrer"><LuGithub aria-hidden="true" />GitHub<IoArrowForward aria-hidden="true" /></a>
+              <a className="button button-secondary" href={`https://www.linkedin.com/in/davidabejonheras/${language === 'en' ? '?locale=en_US' : ''}`} target="_blank" rel="noreferrer"><AiOutlineLinkedin aria-hidden="true" />LinkedIn<IoArrowForward aria-hidden="true" /></a>
+            </div>
           </div>
+        </section>
+      </main>
 
-        </div>
-
-        <div className='experience mb-5' ref={experienceRef}>
-          <div className='d-flex align-items-center gap-2 mb-4'>
-            <MdOutlineWorkOutline color='white' size="3rem" />
-            <h1>{translation.titles.experience[language]}</h1>
-          </div>
-          {
-            [...translation.experience].reverse().map((item, index) => (
-              <>
-                <Experience
-                  key={index}
-                  className='experience-role'
-                  title={item.title[language]}
-                  date={item.dateRange[language]}
-                  description={item.descr[language]}
-                  logo={item.logo}
-                />
-                {index < translation.experience.length - 1 && <hr></hr>}
-              </>
-            ))
-          }
-        </div>
-
-        <div className='projects pb-5 d-flex flex-column gap-5' ref={projectsRef}>
-          <div className='d-flex align-items-center gap-2 mb-2'>
-            <IoHammerOutline color='white' size="3rem" />
-            <h1>{translation.titles.projects[language]}</h1>
-          </div>
-
-          <Project
-            className='spotify3ds'
-            title={translation.projects.spotify3ds.title[language]}
-            description={translation.projects.spotify3ds.descr[language]}
-            tags={[
-              <Tag type='c' text='C' />,
-              <Tag type='devkitpro' text='DevkitPro' />,
-              <Tag type='python' text='Python' />,
-            ]}
-            repository={translation.buttons.repository[language]}
-            repositoryURL='https://github.com/davidabejon/spotify-3ds'
-            liveDemo={translation.buttons.liveDemo[language]}
-            liveDemoDisabled
-          />
-
-          <Project
-            className='archive'
-            title={translation.projects.archive.title[language]}
-            description={translation.projects.archive.descr[language]}
-            tags={[
-              <Tag type='react' text='React' />,
-              <Tag type='js' text='JavaScript' />,
-              <Tag type='tailwind' text='Tailwind CSS' />,
-              <Tag type='graphql' text='GraphQL' />,
-            ]}
-            repository={translation.buttons.repository[language]}
-            repositoryURL='https://github.com/davidabejon/archive'
-            liveDemo={translation.buttons.liveDemo[language]}
-            liveDemoURL='https://archive.davidabejon.cv/'
-          />
-
-          <Project
-            className='connected-sounds'
-            title={translation.projects.connectedSounds.title[language]}
-            description={translation.projects.connectedSounds.descr[language]}
-            tags={[
-              <Tag type='react' text='React' />,
-              <Tag type='js' text='JavaScript' />,
-              <Tag type='threejs' text='Three.js' />,
-              <Tag type='r3f' text='React Three Fiber' />,
-              <Tag type='css' text='CSS' />
-            ]}
-            repository={translation.buttons.repository[language]}
-            repositoryURL='https://github.com/davidabejon/connected-sounds'
-            liveDemo={translation.buttons.liveDemo[language]}
-            liveDemoURL='https://radio.davidabejon.cv/'
-          />
-
-          <Project
-            className='gesttfx'
-            title={translation.projects.gesttfx.title[language]}
-            description={translation.projects.gesttfx.descr[language]}
-            tags={[
-              <Tag type='react' text='React' />,
-              <Tag type='css' text='CSS' />,
-              <Tag type='javaservlets' text='Java Servlets' />,
-              <Tag type='mariadb' text='MariaDB' />,
-            ]}
-            repository={translation.buttons.repository[language]}
-            repositoryDisabled
-            liveDemo={translation.buttons.liveDemo[language]}
-            liveDemoURL="https://gestiontfx.uah.es/GestTFx/"
-            language={language}
-          />
-
-        </div>
-
-      </div>
-
-      <footer>
-        <a href='https://github.com/davidabejon/portfolio' className='source-code-footer web-link' target='_blank'><AiOutlineGithub color='white' size="1.2rem" className='mx-1' />{translation.buttons.repository[language]}</a>
-        <div>David Abejón, {new Date().getFullYear()}</div>
+      <footer className="site-footer">
+        <span>David Abejón © {new Date().getFullYear()}</span>
+        <a href="https://github.com/davidabejon/portfolio" target="_blank" rel="noreferrer"><LuGithub aria-hidden="true" />{translation.buttons.repository[language]}<IoArrowForward aria-hidden="true" /></a>
+        <a href="#home">{ui.backTop} ↑</a>
       </footer>
 
-      {/* CV PDF Modal */}
-      <div className="modal fade" tabIndex="-1" id='pdfModal' aria-labelledby='pdfModalLabel' aria-hidden="true">
-        <div className="modal-dialog modal-lg">
-          <div className="modal-content">
-            <div className="modal-body">
-              <div className='d-flex' style={{ justifyContent: 'flex-end' }}>
-                <a href={language == 'es' ? esCV : enCV} download title={translation.elementDescriptions.download[language]}>
-                  <IoMdDownload color='black' size='2.5rem' />
-                </a>
-              </div>
-              <div className='d-flex justify-content-center'>
-                <Document file={language == 'es' ? esCV : enCV} className="pdf">
-                  <Page pageNumber={1} className="pdf" />
-                </Document>
-              </div>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="pdf-close-button" data-bs-dismiss="modal">{translation.buttons.close[language]}</button>
-            </div>
-          </div>
+      <dialog className="cv-dialog" ref={dialogRef} aria-labelledby="cv-title" onCancel={event => { event.preventDefault(); closeCV() }} onKeyDown={event => { if (event.key === 'Escape') { event.preventDefault(); closeCV() } }} onClose={() => setCvOpen(false)}>
+        <div className="cv-toolbar">
+          <h2 id="cv-title">Curriculum Vitae</h2>
+          <a className="icon-button" href={cv} download aria-label={translation.elementDescriptions.download[language]}><IoMdDownload aria-hidden="true" /></a>
+          <button className="icon-button" onClick={closeCV} aria-label={translation.buttons.close[language]}><IoClose aria-hidden="true" /></button>
         </div>
-      </div>
+        <div className="pdf-container" ref={pdfContainer}>
+          {cvOpen && <Document file={cv} loading={<p className="pdf-message">{ui.loadingCV}</p>} error={<p className="pdf-message" role="alert">{ui.cvError}</p>} onLoadError={error => { console.error('Could not load the CV.', error); setPdfError(true) }}>
+            {!pdfError && <Page pageNumber={1} width={pdfWidth} loading={<p className="pdf-message">{ui.loadingCV}</p>} error={<p className="pdf-message" role="alert">{ui.cvError}</p>} onRenderError={error => console.error('Could not render the CV.', error)} />}
+          </Document>}
+        </div>
+        <div className="cv-footer"><a className="button button-primary" href={cv} download><IoMdDownload aria-hidden="true" />{translation.elementDescriptions.download[language]}</a><button className="button button-secondary" onClick={closeCV}>{translation.buttons.close[language]}</button></div>
+      </dialog>
     </>
   )
 }

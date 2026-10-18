@@ -2,6 +2,37 @@ import uahLogo from './assets/uah.png'
 import carrefourLogo from './assets/carrefour_logo.jpg'
 import insureaLogo from './assets/insureatechnologies_logo.jpg'
 const translation = {
+    ui: {
+        skip: { es: 'Saltar al contenido', en: 'Skip to content' },
+        home: { es: 'David Abejón, inicio', en: 'David Abejón, home' },
+        navigation: { es: 'Navegación principal', en: 'Main navigation' },
+        heroLabel: { es: 'DESARROLLO WEB / PORTFOLIO', en: 'WEB DEVELOPMENT / PORTFOLIO' },
+        intro: {
+            es: 'Soy David, graduado en Ingeniería Informática por la Universidad de Alcalá. Me especializo en desarrollo frontend con React, y tengo experiencia en backend con FastAPI, Spring Boot, MongoDB y MySQL. Trabajo con metodologías ágiles y Scrum, integrando la IA en mi día a día y manteniéndome en constante aprendizaje.',
+            en: 'I\'m David, a recent Computer Engineering graduate from the University of Alcalá. I specialize in frontend development using React, with backend experience in FastAPI, Spring Boot, MongoDB and MySQL. I use Agile methodologies and Scrum, integrating AI into my daily workflow while continuously learning.'
+        },
+        roles: { es: ['Desarrollador Front-End', 'Ingeniero Informático', 'Experiencia en React y Vue.js'], en: ['Front-End Developer', 'Computer Engineer', 'React and Vue.js Developer'] },
+        viewProjects: { es: 'Ver proyectos', en: 'View projects' },
+        viewCV: { es: 'Ver CV', en: 'View CV' },
+        moreAbout: { es: 'Un poco más sobre mí', en: 'A little more about me' },
+        portrait: { es: 'Retrato de David Abejón', en: 'Portrait of David Abejón' },
+        explore: { es: 'EXPLORA MI TRABAJO', en: 'EXPLORE MY WORK' },
+        journey: { es: 'TRAYECTORIA', en: 'MY JOURNEY' },
+        experienceIntro: { es: 'Aprendizaje continuo, de la investigación al desarrollo de producto.', en: 'Always learning, from research to product development.' },
+        current: { es: 'Actual', en: 'Current' },
+        selectedWork: { es: 'PROYECTOS SELECCIONADOS', en: 'SELECTED WORK' },
+        projectsIntro: { es: 'Ideas que se convierten en experiencias.', en: 'Ideas turned into experiences.' },
+        connect: { es: 'CONECTEMOS', en: 'LET\'S CONNECT' },
+        contactIntro: { es: '¿Tienes una idea o quieres saber más? Hablemos.', en: 'Have an idea or want to know more? Let\'s talk.' },
+        copied: { es: 'Correo copiado al portapapeles.', en: 'Email copied to clipboard.' },
+        copyError: { es: 'No se ha podido copiar. Puedes seleccionar el correo y copiarlo manualmente.', en: 'Could not copy. You can select the email and copy it manually.' },
+        backTop: { es: 'Volver arriba', en: 'Back to top' },
+        loadingCV: { es: 'Cargando CV…', en: 'Loading CV…' },
+        cvError: { es: 'No se ha podido mostrar el CV. Puedes descargarlo con el botón de descarga.', en: 'Could not display the CV. You can still use the download button.' },
+        projectPreview: { es: 'Captura de la interfaz de {title}', en: 'Screenshot of the {title} interface' },
+        technologies: { es: 'Tecnologías', en: 'Technologies' },
+        unavailable: { es: 'No disponible', en: 'Unavailable' },
+    },
     titles: {
         about: { es: 'Sobre mí', en: 'About' },
         contact: { es: 'Contacto', en: 'Contact' },
@@ -11,7 +42,7 @@ const translation = {
     about: {
         phrase1: {
             es: '¡Hola! Soy David y soy recién graduado ingeniero informático por la Universidad de Alcalá. Siempre me he sentido atraído por el desarrollo web y tengo experiencia con frameworks y tecnologías como React.js, Vue.js, Java Servlets, MySQL entre muchas otras. En mi carrera me he centrado más en el desarrollo Front End, pero tanto en proyectos personales como en mis últimos puestos de trabajo he trabajdo también en el Back End con Go, Springboot y Java Servlets. Me mantengo siempre al día y trabajo integrando la IA en mi rutina de trabajo, basada en metodologías ágiles y SCRUM.',
-            en: "Hi! I'm David, a recent Computer Engineering graduate from the University of Alcalá with a strong interest in web development and experience in technologies like React.js, Vue.js, Java Servlets, and MySQL; while I’ve focused mainly on Front-End, I’ve also worked on the Back-End in personal and professional projects, staying up to date and integrating AI into my agile, SCRUM-based workflow."
+            en: "Hi! I'm David, a recent Computer Engineering graduate from the University of Alcalá with a strong interest in web development and experience in technologies like React.js, Vue.js, Java Servlets, and MySQL; while I\'ve focused mainly on Front-End, I\'ve also worked on the Back-End in personal and professional projects, staying up to date and integrating AI into my agile, SCRUM-based workflow."
         }
     },
     experience: [
