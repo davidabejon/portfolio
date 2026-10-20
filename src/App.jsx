@@ -3,7 +3,7 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
 import Typed from 'typed.js'
-import { IoArrowForward, IoCodeSlashOutline, IoSend, IoClose } from 'react-icons/io5'
+import { IoArrowForward, IoCodeSlashOutline, IoSend, IoClose, IoTerminalOutline } from 'react-icons/io5'
 import { LuGithub } from 'react-icons/lu'
 import { AiOutlineLinkedin } from 'react-icons/ai'
 import { FaRegCopy, FaCheck } from 'react-icons/fa'
@@ -50,6 +50,8 @@ function App() {
   const dialogRef = useRef(null)
   const pdfContainer = useRef(null)
   const copyTimer = useRef(null)
+  const contactPanel = useRef(null)
+  const emailElement = useRef(null)
   const ui = Object.fromEntries(Object.entries(translation.ui).map(([key, value]) => [key, value[language]]))
   const cv = language === 'es' ? esCV : enCV
 
@@ -107,6 +109,43 @@ function App() {
   }, [])
 
   useEffect(() => () => clearTimeout(copyTimer.current), [])
+
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let typed
+    let started = false
+    function showEmail() {
+      typed?.destroy()
+      emailElement.current.textContent = email
+    }
+    function updatePreference() {
+      if (preference.matches) showEmail()
+    }
+    if (preference.matches) showEmail()
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting || started) return
+      started = true
+      observer.disconnect()
+      if (preference.matches) {
+        showEmail()
+      } else {
+        typed = new Typed(emailElement.current, {
+          strings: [email],
+          typeSpeed: 48,
+          startDelay: 250,
+          cursorChar: '▌',
+          onComplete: instance => { instance.cursor?.remove() },
+        })
+      }
+    }, { threshold: 0.35 })
+    observer.observe(contactPanel.current)
+    preference.addEventListener('change', updatePreference)
+    return () => {
+      observer.disconnect()
+      typed?.destroy()
+      preference.removeEventListener('change', updatePreference)
+    }
+  }, [])
 
   useEffect(() => {
     if (!cvOpen) return
@@ -210,15 +249,17 @@ function App() {
 
         <section className="content-section contact-section" id="contact" aria-labelledby="contact-title">
           <div className="section-heading"><p className="eyebrow">03 / {ui.connect}</p><h2 id="contact-title">{translation.titles.contact[language]}</h2><p>{ui.contactIntro}</p></div>
-          <div className="contact-panel">
+          <div className="contact-panel" ref={contactPanel}>
+            <div className="terminal-bar" aria-hidden="true"><IoTerminalOutline /><span>david@portfolio:~</span><span className="terminal-path">~/contact</span></div>
             <div className="email-block">
-              <label className="eyebrow" htmlFor="contact-email">EMAIL</label>
+              <span className="eyebrow" id="email-label">EMAIL</span>
               <div className="email">
-                <input id="contact-email" className="email-input" readOnly value={email} />
+                <span className="terminal-prompt" aria-hidden="true">&gt;</span>
+                <span className="terminal-address" aria-labelledby="email-label"><span className="sr-only">{email}</span><span aria-hidden="true"><span ref={emailElement} /></span></span>
                 <button className="icon-button" onClick={copyEmail} aria-label={translation.elementDescriptions.copy[language]} title={translation.elementDescriptions.copy[language]}>{copyStatus === 'copied' ? <FaCheck aria-hidden="true" /> : <FaRegCopy aria-hidden="true" />}</button>
                 <a className="icon-button" href={`mailto:${email}`} aria-label={translation.elementDescriptions.send[language]} title={translation.elementDescriptions.send[language]}><IoSend aria-hidden="true" /></a>
               </div>
-              <p className={`copy-feedback ${copyStatus === 'error' ? 'is-error' : ''}`} role="status">{copyStatus === 'copied' ? ui.copied : copyStatus === 'error' ? ui.copyError : ''}</p>
+              <p className={`copy-feedback ${copyStatus !== 'idle' ? 'is-visible' : ''} ${copyStatus === 'error' ? 'is-error' : ''}`} role="status"><span>{copyStatus === 'copied' ? ui.copied : copyStatus === 'error' ? ui.copyError : ''}</span></p>
             </div>
             <div className="social-links">
               <a className="button button-secondary" href="https://github.com/davidabejon" target="_blank" rel="noreferrer"><LuGithub aria-hidden="true" />GitHub<IoArrowForward aria-hidden="true" /></a>
