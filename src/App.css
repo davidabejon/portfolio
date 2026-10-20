@@ -551,7 +551,7 @@
 }
 
 .tag-js {
-  color: #ebd98c;
+  color: #ffd343;
 }
 
 .tag-graphql {
@@ -563,17 +563,36 @@
   color: #d2d7e6;
 }
 
-.tag-python,
+.tag-cpp {
+  color: rgb(255, 103, 149);
+}
+
 .tag-devkitpro {
-  color: #a1cafa;
+  color: #be8cff;
+}
+
+.tag-python {
+  color: rgb(36, 222, 255);
+}
+
+.tag-typescript {
+  color: #4da6ff;
+}
+
+.tag-sqlite {
+  color: #39d4cf;
+}
+
+.tag-homebrew {
+  color: #a8e3c1;
 }
 
 .tag-javaservlets {
-  color: #edb1b5;
+  color: #ff9e9e;
 }
 
 .tag-mariadb {
-  color: #b7dba0;
+  color: #aaf07e;
 }
 
 .project-buttons {

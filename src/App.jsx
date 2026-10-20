@@ -12,7 +12,8 @@ import { IoMdDownload } from 'react-icons/io'
 import { FaRegFilePdf } from 'react-icons/fa6'
 import photo from './assets/foto_traje.jpg'
 import spotifyImage from './assets/spotify-3ds.png'
-import archiveImage from './assets/archive.png'
+import nxmangaImage from './assets/nxmanga.png'
+import collageImage from './assets/collage.png'
 import radioImage from './assets/connected-sounds.JPG'
 import gestImage from './assets/gesttfx.JPG'
 import esCV from '../pdf/DavidAbejonHeras_CV.pdf'
@@ -26,8 +27,9 @@ import './App.css'
 pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).toString()
 
 const projects = [
-  { id: 'spotify3ds', image: spotifyImage, tags: [['c', 'C'], ['devkitpro', 'devkitPro'], ['python', 'Python']], repositoryURL: 'https://github.com/davidabejon/spotify-3ds' },
-  { id: 'archive', image: archiveImage, tags: [['react', 'React'], ['js', 'JavaScript'], ['tailwind', 'Tailwind CSS'], ['graphql', 'GraphQL']], repositoryURL: 'https://github.com/davidabejon/archive', liveDemoURL: 'https://archive.davidabejon.cv/' },
+  { id: 'spotify3ds', image: spotifyImage, tags: [['c', 'C'], ['devkitpro', 'devkitPro'], ['python', 'Python'], ['homebrew', 'Homebrew']], repositoryURL: 'https://github.com/davidabejon/spotify-3ds' },
+  { id: 'nxmanga', image: nxmangaImage, tags: [['cpp', 'C++'], ['devkitpro', 'devkitPro'], ['homebrew', 'Homebrew']] },
+  { id: 'collage', image: collageImage, tags: [['typescript', 'TypeScript'], ['python', 'Python'], ['css', 'CSS'], ['sqlite', 'SQLite']] },
   { id: 'connectedSounds', image: radioImage, tags: [['react', 'React'], ['js', 'JavaScript'], ['threejs', 'Three.js'], ['r3f', 'React Three Fiber'], ['css', 'CSS']], repositoryURL: 'https://github.com/davidabejon/connected-sounds', liveDemoURL: 'https://radio.davidabejon.cv/' },
   { id: 'gesttfx', image: gestImage, tags: [['react', 'React'], ['css', 'CSS'], ['javaservlets', 'Java Servlets'], ['mariadb', 'MariaDB']], liveDemoURL: 'https://gestiontfx.uah.es/GestTFx/' },
 ]

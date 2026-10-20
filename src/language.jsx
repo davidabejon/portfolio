@@ -111,6 +111,20 @@ const translation = {
                 en: 'Spotify 3DS is a native application for the Nintendo 3DS console developed with the open-source development kit devkitPro. It allows remote control of a user\'s Spotify playback session through an interface adapted to the console\'s features.'
             }
         },
+        nxmanga: {
+            title: { es: 'nxmanga', en: 'nxmanga' },
+            descr: {
+                es: 'nxmanga es un lector de manga y cómic desarrollado para la Nintendo Switch, con controles táctiles y físicos adaptados a la consola.',
+                en: 'NxManga is a manga and comic reader developed for the Nintendo Switch, with touch and physical controls adapted to the console.'
+            }
+        },
+        collage: {
+            title: { es: 'Collage', en: 'Collage' },
+            descr: {
+                es: 'Collage es una aplicación que permite a los usuarios crear collages de imágenes con estética de libro/tablón de fotos polaroid y post-its.',
+                en: 'Collage is an application that allows users to create image collages with a polaroid photo book/board and post-it aesthetic.'
+            }
+        },
         archive: {
             title: { es: 'Archive', en: 'Archive' },
             descr: {
