@@ -130,7 +130,7 @@ function App() {
         showEmail()
       } else {
         typed = new Typed(emailElement.current, {
-          strings: [email],
+          strings: [email.replace('abejon', '^350abejon').replace('@', '^500@').replace('.', '^250.')],
           typeSpeed: 48,
           startDelay: 250,
           cursorChar: '▌',
