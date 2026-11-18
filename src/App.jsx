@@ -27,7 +27,7 @@ import './App.css'
 pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).toString()
 
 const projects = [
-  { id: 'spotify3ds', image: spotifyImage, tags: [['c', 'C'], ['devkitpro', 'devkitPro'], ['python', 'Python'], ['homebrew', 'Homebrew']], repositoryURL: 'https://github.com/davidabejon/spotify-3ds' },
+  { id: 'spotify3ds', image: spotifyImage, tags: [['c', 'C'], ['devkitpro', 'devkitPro'], ['python', 'Python'], ['homebrew', 'Homebrew']], repositoryURL: 'https://github.com/davidabejon/3DSpotify', liveDemoURL: 'https://davidabejon.github.io/3DSpotify/' },
   { id: 'nxmanga', image: nxmangaImage, tags: [['cpp', 'C++'], ['devkitpro', 'devkitPro'], ['homebrew', 'Homebrew']], repositoryURL: 'https://github.com/davidabejon/nxmanga' },
   { id: 'collage', image: collageImage, tags: [['typescript', 'TypeScript'], ['python', 'Python'], ['css', 'CSS'], ['sqlite', 'SQLite']], repositoryURL: 'https://github.com/davidabejon/collage' },
   { id: 'connectedSounds', image: radioImage, tags: [['react', 'React'], ['js', 'JavaScript'], ['threejs', 'Three.js'], ['r3f', 'React Three Fiber'], ['css', 'CSS']], repositoryURL: 'https://github.com/davidabejon/connected-sounds', liveDemoURL: 'https://radio.davidabejon.cv/' },
