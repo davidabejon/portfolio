@@ -211,8 +211,7 @@ function App() {
       <main className="app" id="main">
         <section className="hero" id="home" aria-labelledby="hero-title">
           <div className="hero-content">
-            <p className="eyebrow"><span className="status-dot" />{ui.heroLabel}</p>
-            <h1 id="hero-title">David Abejón<span className="title-dot">.</span></h1>
+            <h1 id="hero-title">David Abejón</h1>
             <div className="type-wrap">
               <span className="sr-only">{translation.ui.roles[language][0]}</span>
               <span aria-hidden="true"><span ref={typedElement} /></span>
@@ -232,7 +231,7 @@ function App() {
         </section>
 
         <section className="content-section" id="experience" aria-labelledby="experience-title">
-          <div className="section-heading"><p className="eyebrow">01 / {ui.journey}</p><h2 id="experience-title">{translation.titles.experience[language]}</h2><p>{ui.experienceIntro}</p></div>
+          <div className="section-heading"><p className="eyebrow">01 / {ui.journey}</p><h2 id="experience-title">{translation.titles.experience[language]}</h2></div>
           <div className="timeline">
             {translation.experience.map((item, index) => ({ ...item, company: companies[index] })).reverse().map((item, index) => (
               <Experience key={`${item.company}-${item.dateRange.en}`} title={item.title[language]} date={item.dateRange[language]} description={item.descr[language]} logo={item.logo} company={item.company} current={index === 0} currentLabel={ui.current} />
@@ -241,7 +240,7 @@ function App() {
         </section>
 
         <section className="content-section" id="projects" aria-labelledby="projects-title">
-          <div className="section-heading"><p className="eyebrow">02 / {ui.selectedWork}</p><h2 id="projects-title">{translation.titles.projects[language]}</h2><p>{ui.projectsIntro}</p></div>
+          <div className="section-heading"><p className="eyebrow">02 / {ui.selectedWork}</p><h2 id="projects-title">{translation.titles.projects[language]}</h2></div>
           <div className="project-list">
             {projects.map((project, index) => (
               <Project key={project.id} {...project} number={String(index + 1).padStart(2, '0')} title={translation.projects[project.id].title[language]} description={translation.projects[project.id].descr[language]} tags={project.tags.map(([type, text]) => <Tag key={type} type={type} text={text} />)} repository={translation.buttons.repository[language]} liveDemo={translation.buttons.liveDemo[language]} language={language} />
@@ -250,7 +249,7 @@ function App() {
         </section>
 
         <section className="content-section contact-section" id="contact" aria-labelledby="contact-title">
-          <div className="section-heading"><p className="eyebrow">03 / {ui.connect}</p><h2 id="contact-title">{translation.titles.contact[language]}</h2><p>{ui.contactIntro}</p></div>
+          <div className="section-heading"><p className="eyebrow">03 / {ui.connect}</p><h2 id="contact-title">{translation.titles.contact[language]}</h2></div>
           <div className="contact-panel" ref={contactPanel}>
             <div className="terminal-bar" aria-hidden="true"><IoTerminalOutline /><span>david@portfolio:~</span><span className="terminal-path">~/contact</span></div>
             <div className="email-block">

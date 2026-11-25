@@ -6,7 +6,6 @@ const translation = {
         skip: { es: 'Saltar al contenido', en: 'Skip to content' },
         home: { es: 'David Abejón, inicio', en: 'David Abejón, home' },
         navigation: { es: 'Navegación principal', en: 'Main navigation' },
-        heroLabel: { es: 'DESARROLLO WEB / PORTFOLIO', en: 'WEB DEVELOPMENT / PORTFOLIO' },
         intro: {
             es: 'Soy David, graduado en Ingeniería Informática por la Universidad de Alcalá. Me especializo en desarrollo frontend con React, y tengo experiencia en backend con FastAPI, Spring Boot, MongoDB y MySQL. Trabajo con metodologías ágiles y Scrum, integrando la IA en mi día a día y manteniéndome en constante aprendizaje.',
             en: 'I\'m David, a recent Computer Engineering graduate from the University of Alcalá. I specialize in frontend development using React, with backend experience in FastAPI, Spring Boot, MongoDB and MySQL. I use Agile methodologies and Scrum, integrating AI into my daily workflow while continuously learning.'
@@ -18,12 +17,9 @@ const translation = {
         portrait: { es: 'Retrato de David Abejón', en: 'Portrait of David Abejón' },
         explore: { es: 'EXPLORA MI TRABAJO', en: 'EXPLORE MY WORK' },
         journey: { es: 'TRAYECTORIA', en: 'MY JOURNEY' },
-        experienceIntro: { es: 'Aprendizaje continuo, de la investigación al desarrollo de producto.', en: 'Always learning, from research to product development.' },
         current: { es: 'Actual', en: 'Current' },
         selectedWork: { es: 'PROYECTOS SELECCIONADOS', en: 'SELECTED WORK' },
-        projectsIntro: { es: 'Ideas que se convierten en experiencias.', en: 'Ideas turned into experiences.' },
         connect: { es: 'CONECTEMOS', en: 'LET\'S CONNECT' },
-        contactIntro: { es: '¿Tienes una idea o quieres saber más? Hablemos.', en: 'Have an idea or want to know more? Let\'s talk.' },
         copied: { es: 'Correo copiado al portapapeles.', en: 'Email copied to clipboard.' },
         copyError: { es: 'No se ha podido copiar. Puedes seleccionar el correo y copiarlo manualmente.', en: 'Could not copy. You can select the email and copy it manually.' },
         backTop: { es: 'Volver arriba', en: 'Back to top' },
@@ -107,8 +103,8 @@ const translation = {
         spotify3ds: {
             title: { es: 'Spotify 3DS', en: 'Spotify 3DS' },
             descr: {
-                es: 'Spotify 3DS es una aplicación nativa para la familia de consolas Nintendo 3DS desarrollada con el kit de desarrollo de código abierto devkitPro. Permite el control remoto de la sesión de reproducción de un usuario de Spotify a través de una interfaz adaptada a las características de la consola.',
-                en: 'Spotify 3DS is a native application for the Nintendo 3DS console developed with the open-source development kit devkitPro. It allows remote control of a user\'s Spotify playback session through an interface adapted to the console\'s features.'
+                es: 'Spotify 3DS es una aplicación nativa para la familia de consolas Nintendo 3DS desarrollada con el kit de desarrollo de código abierto devkitPro. Funciona como un cliente que se conecta directamente con los servicios de Spotify para reproducir música en el propio dispositivo.',
+                en: 'Spotify 3DS is a native application for the Nintendo 3DS console developed with the open-source development kit devkitPro. It works as a client that connects directly to Spotify\'s services to play music on the device itself.'
             }
         },
         nxmanga: {
